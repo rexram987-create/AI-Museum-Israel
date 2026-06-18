@@ -29,8 +29,8 @@
     </section>
 
     <section class="section history-image-section">
-      <figure class="history-visual">
-        <img src="assets/images/history/ai-history-timeline.jpg" alt="AI history timeline" onerror="this.closest('.history-visual').style.display='none'" />
+      <figure class="history-visual js-modal-image" data-full="assets/images/history/ai-timeline.jpg" data-caption="AI History Timeline — Tarjomyar, CC BY-SA 4.0">
+        <img src="assets/images/history/ai-timeline.jpg" alt="AI history timeline" onerror="this.closest('.history-visual').style.display='none'" />
         <figcaption>
           AI History Timeline — Tarjomyar, CC BY-SA 4.0. <a href="docs/image-credits.md">Image credits</a>
         </figcaption>
@@ -46,6 +46,12 @@
       <div id="fullTimelineList" class="timeline museum-timeline"></div>
     </section>
   </main>
+
+  <div id="imageModal" class="image-modal" aria-hidden="true">
+    <button class="modal-close" type="button" aria-label="Close">×</button>
+    <img id="modalImage" src="" alt="" />
+    <p id="modalCaption"></p>
+  </div>
 
   <footer class="footer"><p data-i18n="footerText">AI Museum Israel — פרויקט לימודי, דו־לשוני, ומתפתח.</p></footer>
   <script src="script.js"></script>
