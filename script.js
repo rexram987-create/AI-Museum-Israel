@@ -32,15 +32,16 @@ const translations = {
     israeliCompaniesPage: "חברות ישראליות",
     fullTimeline: "לציר הזמן המלא",
     historyPageTitle: "היסטוריה של הבינה המלאכותית",
-    historyPageText: "עמוד זה ירכז בהמשך את כל ההתפתחות ההיסטורית של התחום: חוקרים, רעיונות, פריצות דרך, תקופות שפל ומהפכות טכנולוגיות.",
+    historyPageText: "עמוד זה מציג את התפתחות הבינה המלאכותית בסדר כרונולוגי, מהנוירון המלאכותי הראשון ועד מרוץ ה־AI העולמי.",
     globalPageTitle: "חברות AI מובילות בעולם",
     globalPageText: "עמוד לחברות הבינלאומיות המרכזיות שמעצבות את תחום הבינה המלאכותית.",
     israelPageTitle: "חברות AI ישראליות מובילות",
     israelPageText: "עמוד לחברות ישראליות בולטות בתחומי מודלי שפה, סייבר, שבבים, רפואה, מכירות ויצירה.",
     timelinePageTitle: "ציר הזמן של הבינה המלאכותית",
-    timelinePageText: "עמוד כרונולוגי שיגדל בהדרגה ויכלול אירועים מרכזיים מראשית התחום ועד היום.",
+    timelinePageText: "ציר זמן כרונולוגי הכולל את האירועים המרכזיים מראשית התחום ועד ההאצה הגדולה של השנים האחרונות.",
     guidePageTitle: "המדריך החכם",
-    guidePageText: "גרסה ראשונה של מדריך מקומי שמחפש בתוך מאגר הידע של האתר. בהמשך אפשר יהיה להפוך אותו לעוזר AI מתקדם יותר."
+    guidePageText: "גרסה ראשונה של מדריך מקומי שמחפש בתוך מאגר הידע של האתר. בהמשך אפשר יהיה להפוך אותו לעוזר AI מתקדם יותר.",
+    goldenStation: "תחנת האצה מרכזית"
   },
   en: {
     navHistory: "History",
@@ -75,15 +76,16 @@ const translations = {
     israeliCompaniesPage: "Israeli Companies",
     fullTimeline: "Full Timeline",
     historyPageTitle: "History of Artificial Intelligence",
-    historyPageText: "This page will gradually collect the full historical development of the field: researchers, ideas, breakthroughs, AI winters, and technological revolutions.",
+    historyPageText: "This page presents the development of Artificial Intelligence in chronological order, from the first artificial neuron to the global AI race.",
     globalPageTitle: "Leading AI Companies Worldwide",
     globalPageText: "A page for major international companies shaping the field of Artificial Intelligence.",
     israelPageTitle: "Leading Israeli AI Companies",
     israelPageText: "A page for notable Israeli companies in language models, cybersecurity, chips, medicine, sales, and creative AI.",
     timelinePageTitle: "The AI Timeline",
-    timelinePageText: "A chronological page that will grow over time and include major events from the early field to the present day.",
+    timelinePageText: "A chronological timeline covering key events from the early field to the major acceleration of recent years.",
     guidePageTitle: "The Smart Guide",
-    guidePageText: "A first version of a local guide that searches inside the website knowledge base. Later it can become a more advanced AI assistant."
+    guidePageText: "A first version of a local guide that searches inside the website knowledge base. Later it can become a more advanced AI assistant.",
+    goldenStation: "Major acceleration milestone"
   }
 };
 
@@ -140,9 +142,12 @@ function cardTemplate(item) {
 }
 
 function timelineTemplate(item) {
+  const highlightClass = item.highlight ? " timeline-item-highlight" : "";
+  const highlightBadge = item.highlight ? `<span class="highlight-badge">${t("goldenStation")}</span>` : "";
   return `
-    <article class="timeline-item">
+    <article class="timeline-item${highlightClass}">
       <div class="timeline-year">${item.year}</div>
+      ${highlightBadge}
       <h3>${localized(item, "title")}</h3>
       <p>${localized(item, "summary")}</p>
     </article>
