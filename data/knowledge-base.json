@@ -1,6 +1,16 @@
 {
   "history": [
     {
+      "id": "early-neuron",
+      "period": { "he": "1943", "en": "1943" },
+      "title": { "he": "הנוירון המלאכותי הראשון", "en": "The First Artificial Neuron" },
+      "summary": {
+        "he": "וורן מקולוך וולטר פיטס הציעו מודל מתמטי מוקדם של נוירון, רעיון שעזר לדמיין את המוח כמערכת חישובית.",
+        "en": "Warren McCulloch and Walter Pitts proposed an early mathematical model of a neuron, helping imagine the brain as a computational system."
+      },
+      "keywords": ["McCulloch", "Pitts", "neuron", "נוירון", "מקולוך", "פיטס"]
+    },
+    {
       "id": "turing-test",
       "period": { "he": "1950", "en": "1950" },
       "title": { "he": "מבחן טיורינג", "en": "The Turing Test" },
@@ -32,17 +42,17 @@
     },
     {
       "id": "deep-learning",
-      "period": { "he": "2010 ואילך", "en": "2010 onward" },
+      "period": { "he": "2012 ואילך", "en": "2012 onward" },
       "title": { "he": "מהפכת הלמידה העמוקה", "en": "The Deep Learning Revolution" },
       "summary": {
         "he": "למידה עמוקה, רשתות עצביות גדולות וכוח מחשוב מתקדם הובילו לפריצות דרך בזיהוי תמונה, דיבור ושפה.",
         "en": "Deep learning, large neural networks, and advanced computing power enabled breakthroughs in image recognition, speech, and language."
       },
-      "keywords": ["deep learning", "neural networks", "למידה עמוקה", "רשתות עצביות"]
+      "keywords": ["deep learning", "neural networks", "למידה עמוקה", "רשתות עצביות", "AlexNet", "ImageNet"]
     },
     {
       "id": "generative-ai",
-      "period": { "he": "2020 ואילך", "en": "2020 onward" },
+      "period": { "he": "2022 ואילך", "en": "2022 onward" },
       "title": { "he": "בינה מלאכותית יוצרת", "en": "Generative AI" },
       "summary": {
         "he": "מודלים יוצרים החלו להפיק טקסט, תמונות, קוד, מוזיקה ווידאו, והפכו את הבינה המלאכותית לנגישה למיליוני משתמשים.",
@@ -155,46 +165,132 @@
   "timeline": [
     {
       "year": "1943",
-      "title": { "he": "מודל מתמטי של נוירון", "en": "A Mathematical Model of a Neuron" },
+      "title": { "he": "הנוירון המלאכותי הראשון", "en": "The First Artificial Neuron" },
       "summary": {
-        "he": "מקולוק ופיטס פרסמו מודל תיאורטי מוקדם שהשפיע על התפתחות הרשתות העצביות.",
-        "en": "McCulloch and Pitts published an early theoretical model that influenced the development of neural networks."
+        "he": "וורן מקולוך וולטר פיטס פרסמו מודל מתמטי מוקדם של נוירון. זה היה צעד רעיוני חשוב בדרך לרשתות עצביות ולתפיסה שמערכות חכמות יכולות להיבנות מחישובים פשוטים המחוברים יחד.",
+        "en": "Warren McCulloch and Walter Pitts published an early mathematical model of a neuron. It became an important conceptual step toward neural networks and the idea that intelligent systems could emerge from connected simple computations."
       },
-      "keywords": ["McCulloch", "Pitts", "neuron", "נוירון"]
+      "keywords": ["McCulloch", "Pitts", "neuron", "neural networks", "נוירון"]
     },
     {
       "year": "1950",
       "title": { "he": "מבחן טיורינג", "en": "The Turing Test" },
       "summary": {
-        "he": "טיורינג הציג שאלה מכוננת: האם מכונות יכולות לחשוב?", "en": "Turing introduced a defining question: can machines think?" },
-      "keywords": ["Turing", "מבחן טיורינג"]
+        "he": "אלן טיורינג פרסם את המאמר Computing Machinery and Intelligence והציע לבחון אינטליגנציה מכנית דרך שיחה. השאלה 'האם מכונות יכולות לחשוב?' הפכה לאבן יסוד בהיסטוריה של התחום.",
+        "en": "Alan Turing published Computing Machinery and Intelligence and proposed evaluating machine intelligence through conversation. The question 'Can machines think?' became a foundation of AI history."
+      },
+      "keywords": ["Turing", "Turing Test", "Computing Machinery and Intelligence", "מבחן טיורינג"]
     },
     {
       "year": "1956",
-      "title": { "he": "לידת המונח Artificial Intelligence", "en": "The Birth of the Term Artificial Intelligence" },
+      "title": { "he": "ועידת דארטמות׳ ולידת תחום ה־AI", "en": "The Dartmouth Workshop and the Birth of AI" },
       "summary": {
-        "he": "סדנת דארטמות׳ עזרה להפוך את הבינה המלאכותית לתחום מחקר מוגדר.",
-        "en": "The Dartmouth Workshop helped establish AI as a distinct research field."
+        "he": "בכנס דארטמות׳ נטבע והתגבש המונח Artificial Intelligence. ג׳ון מקארתי וחוקרים נוספים עזרו להפוך את הרעיון לתחום מחקר עצמאי.",
+        "en": "At the Dartmouth Workshop, the term Artificial Intelligence was introduced and consolidated. John McCarthy and other researchers helped turn the idea into an independent research field."
       },
-      "keywords": ["Dartmouth", "Artificial Intelligence"]
+      "keywords": ["Dartmouth", "John McCarthy", "Artificial Intelligence", "AI", "דארטמות"]
+    },
+    {
+      "year": "1956–1973",
+      "title": { "he": "שנות האופטימיות הראשונות", "en": "The First Years of Optimism" },
+      "summary": {
+        "he": "חוקרים פיתחו מערכות לפתרון בעיות, תרגום מכונה ורובוטיקה מוקדמת. התקופה התאפיינה באופטימיות גדולה, אך גם בציפיות גבוהות מדי ביחס ליכולת המחשוב והידע של התקופה.",
+        "en": "Researchers developed systems for problem solving, machine translation, and early robotics. The period was marked by great optimism, but also by expectations that exceeded the computing power and knowledge available at the time."
+      },
+      "keywords": ["optimism", "machine translation", "robotics", "תרגום מכונה", "רובוטיקה"]
+    },
+    {
+      "year": "1974–1980",
+      "title": { "he": "חורף ה־AI הראשון", "en": "The First AI Winter" },
+      "summary": {
+        "he": "כאשר ההבטחות הגדולות לא התממשו בקצב שציפו לו, ירד האמון בתחום וחלק מתקציבי המחקר קוצצו. זו הייתה אחת התקופות הראשונות של האטה משמעותית בבינה מלאכותית.",
+        "en": "When major promises failed to materialize at the expected pace, confidence declined and some research funding was reduced. This became one of the first major slowdowns in AI."
+      },
+      "keywords": ["AI winter", "funding", "חורף AI", "קיצוץ"]
+    },
+    {
+      "year": "1980–1987",
+      "title": { "he": "עידן המערכות המומחיות", "en": "The Era of Expert Systems" },
+      "summary": {
+        "he": "מערכות מומחיות ניסו לשמר ידע של מומחים אנושיים בתוך מערכת חוקים. הן הביאו את ה־AI לשימושים עסקיים ראשונים, אך היו יקרות וקשות לתחזוקה.",
+        "en": "Expert systems attempted to encode human expert knowledge into rule-based systems. They brought AI into early business use, but were expensive and difficult to maintain."
+      },
+      "keywords": ["expert systems", "rules", "מערכות מומחיות", "חוקים"]
+    },
+    {
+      "year": "1987–1993",
+      "title": { "he": "חורף ה־AI השני", "en": "The Second AI Winter" },
+      "summary": {
+        "he": "שוק המערכות המומחיות נחלש, מחשבים ייעודיים איבדו מכדאיותם, והתחום נכנס שוב לתקופה של אכזבה וצמצום השקעות.",
+        "en": "The expert systems market weakened, specialized AI hardware became less attractive, and the field entered another period of disappointment and reduced investment."
+      },
+      "keywords": ["second AI winter", "expert systems", "חורף AI שני"]
+    },
+    {
+      "year": "1997",
+      "title": { "he": "Deep Blue מנצח את גארי קספרוב", "en": "Deep Blue Defeats Garry Kasparov" },
+      "summary": {
+        "he": "המחשב Deep Blue של IBM ניצח את אלוף העולם בשחמט גארי קספרוב. האירוע הראה את כוחן של מערכות חיפוש וחישוב ממוקדות במשימות מוגדרות היטב.",
+        "en": "IBM's Deep Blue defeated world chess champion Garry Kasparov. The event demonstrated the power of search and computation in well-defined tasks."
+      },
+      "keywords": ["Deep Blue", "Kasparov", "chess", "IBM", "שחמט"]
+    },
+    {
+      "year": "2000–2011",
+      "title": { "he": "עידן הנתונים הגדולים והאינטרנט", "en": "The Era of Big Data and the Internet" },
+      "summary": {
+        "he": "התפשטות האינטרנט, מאגרי מידע גדולים ושיפור כוח המחשוב יצרו את הקרקע ללמידת מכונה מודרנית. יותר נתונים אפשרו למודלים ללמוד דפוסים מורכבים יותר.",
+        "en": "The spread of the internet, large datasets, and improved computing power created the foundation for modern machine learning. More data allowed models to learn more complex patterns."
+      },
+      "keywords": ["big data", "internet", "machine learning", "נתונים גדולים", "אינטרנט"]
     },
     {
       "year": "2012",
-      "title": { "he": "פריצת דרך בלמידה עמוקה", "en": "A Breakthrough in Deep Learning" },
+      "highlight": true,
+      "title": { "he": "AlexNet ומהפכת הלמידה העמוקה", "en": "AlexNet and the Deep Learning Breakthrough" },
       "summary": {
-        "he": "הצלחות בזיהוי תמונה הראו את הכוח של רשתות עצביות גדולות וכוח מחשוב מודרני.",
-        "en": "Successes in image recognition demonstrated the power of large neural networks and modern computing."
+        "he": "AlexNet השיג פריצת דרך בתחרות ImageNet והראה ששילוב של רשתות עצביות עמוקות, כמויות נתונים גדולות ו־GPU יכול לשפר דרמטית זיהוי תמונה. זו נקודת הפתיחה המרכזית של ההאצה המודרנית ב־AI.",
+        "en": "AlexNet achieved a breakthrough in the ImageNet competition and showed that deep neural networks, large datasets, and GPUs could dramatically improve image recognition. This is a central starting point of the modern AI acceleration."
       },
-      "keywords": ["deep learning", "ImageNet", "למידה עמוקה"]
+      "keywords": ["AlexNet", "ImageNet", "deep learning", "GPU", "למידה עמוקה", "האצה"]
     },
     {
-      "year": "2022",
-      "title": { "he": "עידן הצ׳אטבוטים המודרניים", "en": "The Era of Modern Chatbots" },
+      "year": "2017",
+      "highlight": true,
+      "title": { "he": "ה־Transformer והמאמר Attention Is All You Need", "en": "The Transformer and Attention Is All You Need" },
       "summary": {
-        "he": "צ׳אטבוטים מבוססי מודלי שפה גדולים הפכו את ה־AI לכלי יומיומי עבור ציבור רחב.",
-        "en": "Chatbots based on large language models made AI an everyday tool for a broad public."
+        "he": "ארכיטקטורת Transformer אפשרה למודלים לעבד שפה בצורה יעילה וגמישה יותר. היא הפכה לבסיס של רוב מודלי השפה הגדולים ושל מהפכת הבינה המלאכותית היוצרת.",
+        "en": "The Transformer architecture allowed models to process language more efficiently and flexibly. It became the foundation of most large language models and the generative AI revolution."
       },
-      "keywords": ["ChatGPT", "LLM", "צ׳אטבוט", "מודלי שפה"]
+      "keywords": ["Transformer", "Attention Is All You Need", "LLM", "מודלי שפה", "טרנספורמר"]
+    },
+    {
+      "year": "2020–2021",
+      "title": { "he": "מודלי שפה גדולים מתחילים לשנות את התחום", "en": "Large Language Models Begin to Transform the Field" },
+      "summary": {
+        "he": "מודלים גדולים הראו יכולות חדשות בכתיבה, תכנות, תרגום, סיכום והבנת שפה. התחום התקדם ממערכות ייעודיות לכלים כלליים יותר.",
+        "en": "Large models demonstrated new abilities in writing, coding, translation, summarization, and language understanding. The field moved from narrow systems toward more general tools."
+      },
+      "keywords": ["LLM", "language models", "GPT", "מודלי שפה"]
+    },
+    {
+      "year": "30 בנובמבר 2022",
+      "highlight": true,
+      "title": { "he": "השקת ChatGPT והמעבר לתודעה ציבורית", "en": "ChatGPT Launches and Enters Public Awareness" },
+      "summary": {
+        "he": "השקת ChatGPT הפכה את ה־AI ממחקר מתקדם וכלי מקצועי למוצר המוני שכל אדם יכול לנסות. זו נקודת מפנה ציבורית ועסקית שהאיצה השקעות, תחרות ופיתוחים בכל העולם.",
+        "en": "The launch of ChatGPT turned AI from advanced research and professional tooling into a mass-market product anyone could try. It became a public and business turning point that accelerated investment, competition, and development worldwide."
+      },
+      "keywords": ["ChatGPT", "OpenAI", "November 30 2022", "צ׳אטג׳יפיטי", "האצה"]
+    },
+    {
+      "year": "2023–2026",
+      "title": { "he": "מרוץ ה־AI העולמי", "en": "The Global AI Race" },
+      "summary": {
+        "he": "לאחר ChatGPT החלה האצה רחבה: מודלים מולטימודליים, יצירת תמונות ווידאו, סוכני AI, והשקעות ענק מצד חברות וממשלות. הבינה המלאכותית הפכה לאחד ממוקדי התחרות הטכנולוגית המרכזיים בעולם.",
+        "en": "After ChatGPT, acceleration broadened: multimodal models, image and video generation, AI agents, and massive investments by companies and governments. AI became one of the world's central areas of technological competition."
+      },
+      "keywords": ["AI race", "multimodal", "AI agents", "video generation", "מרוץ AI"]
     }
   ]
 }
