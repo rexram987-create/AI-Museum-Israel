@@ -166,6 +166,7 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--border);
   border-radius: 1.2rem;
   background: rgba(2, 6, 23, 0.45);
+  cursor: zoom-in;
 }
 .history-visual img,
 .timeline-image img {
@@ -248,6 +249,51 @@ a { color: inherit; text-decoration: none; }
   color: var(--muted);
 }
 
+.image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.86);
+  backdrop-filter: blur(10px);
+}
+.image-modal.is-open { display: flex; }
+.image-modal img {
+  max-width: min(1100px, 94vw);
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: var(--shadow);
+}
+.image-modal p {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  margin: 0 auto;
+  max-width: 1000px;
+  color: var(--muted);
+  text-align: center;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  inset-inline-end: 1rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--text);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
 .footer {
   padding: 2rem 1rem;
   text-align: center;
@@ -260,4 +306,6 @@ a { color: inherit; text-decoration: none; }
   .nav-links { flex-wrap: wrap; }
   .section { padding: 2.6rem 1rem; }
   .hero { min-height: auto; }
+  .image-modal img { max-height: 72vh; }
+  .image-modal p { font-size: 0.85rem; }
 }
