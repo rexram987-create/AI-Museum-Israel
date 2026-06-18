@@ -95,6 +95,19 @@ let knowledge = { history: [], companies: [], timeline: [] };
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
+const historyImages = {
+  "2012": {
+    src: "assets/images/history/alexnet-diagram.svg",
+    alt: "AlexNet block diagram",
+    credit: "AlexNet diagram — Zhang, Lipton, Li and Smola, CC BY-SA 4.0"
+  },
+  "2017": {
+    src: "assets/images/history/transformer-architecture.png",
+    alt: "Transformer model architecture",
+    credit: "Transformer architecture — Yuening Jia, CC BY-SA 3.0"
+  }
+};
+
 async function loadKnowledge() {
   const response = await fetch("data/knowledge-base.json");
   knowledge = await response.json();
@@ -144,12 +157,21 @@ function cardTemplate(item) {
 function timelineTemplate(item) {
   const highlightClass = item.highlight ? " timeline-item-highlight" : "";
   const highlightBadge = item.highlight ? `<span class="highlight-badge">${t("goldenStation")}</span>` : "";
+  const image = historyImages[item.year];
+  const imageBlock = image ? `
+    <figure class="timeline-image">
+      <img src="${image.src}" alt="${image.alt}" onerror="this.closest('.timeline-image').style.display='none'" />
+      <figcaption>${image.credit} · <a href="docs/image-credits.md">Credits</a></figcaption>
+    </figure>
+  ` : "";
+
   return `
     <article class="timeline-item${highlightClass}">
       <div class="timeline-year">${item.year}</div>
       ${highlightBadge}
       <h3>${localized(item, "title")}</h3>
       <p>${localized(item, "summary")}</p>
+      ${imageBlock}
     </article>
   `;
 }
