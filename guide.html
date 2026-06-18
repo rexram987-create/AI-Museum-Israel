@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guide | AI Museum Israel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="guide">
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">AI Museum Israel</a>
+      <div class="nav-links">
+        <a href="history.html" data-i18n="navHistory">היסטוריה</a>
+        <a href="global-companies.html" data-i18n="navGlobalCompanies">חברות עולמיות</a>
+        <a href="israeli-companies.html" data-i18n="navIsraeliCompanies">חברות ישראליות</a>
+        <a href="timeline.html" data-i18n="navTimeline">ציר זמן</a>
+        <a href="guide.html" data-i18n="navGuide">מדריך חכם</a>
+      </div>
+      <button id="languageToggle" class="lang-btn">English</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero section">
+      <p class="eyebrow" data-i18n="navGuide">מדריך חכם</p>
+      <h1 data-i18n="guidePageTitle">המדריך החכם</h1>
+      <p data-i18n="guidePageText">גרסה ראשונה של מדריך מקומי שמחפש בתוך מאגר הידע של האתר.</p>
+    </section>
+
+    <section class="section guide-section">
+      <div class="section-title">
+        <p class="eyebrow" data-i18n="guideEyebrow">גרסה ראשונה — מקומית וחינמית</p>
+        <h2 data-i18n="guideTitle">המדריך החכם של המוזיאון</h2>
+        <p data-i18n="guideIntro">כתוב שאלה בעברית או באנגלית. המדריך מחפש במאגר המידע המקומי של האתר ועונה לפי הערכים הקיימים.</p>
+      </div>
+      <div class="guide-box">
+        <input id="questionInput" type="search" data-i18n-placeholder="questionPlaceholder" placeholder="לדוגמה: מי הקים את AI21 Labs?" />
+        <button id="askButton" class="primary-btn" data-i18n="askButton">חפש תשובה</button>
+        <div id="answerBox" class="answer-box"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><p data-i18n="footerText">AI Museum Israel — פרויקט לימודי, דו־לשוני, ומתפתח.</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
