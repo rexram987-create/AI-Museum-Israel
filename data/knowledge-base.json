@@ -1,0 +1,200 @@
+{
+  "history": [
+    {
+      "id": "turing-test",
+      "period": { "he": "1950", "en": "1950" },
+      "title": { "he": "מבחן טיורינג", "en": "The Turing Test" },
+      "summary": {
+        "he": "אלן טיורינג הציע דרך מחשבתית לבחון אם מכונה מסוגלת להפגין התנהגות שנראית אינטליגנטית בשיחה אנושית.",
+        "en": "Alan Turing proposed a thought experiment for evaluating whether a machine can display behavior that appears intelligent in human conversation."
+      },
+      "keywords": ["Alan Turing", "Turing Test", "אלן טיורינג", "מבחן טיורינג"]
+    },
+    {
+      "id": "dartmouth-workshop",
+      "period": { "he": "1956", "en": "1956" },
+      "title": { "he": "סדנת דארטמות׳", "en": "The Dartmouth Workshop" },
+      "summary": {
+        "he": "כנס דארטמות׳ נחשב לאחד מרגעי הלידה של תחום הבינה המלאכותית כשדה מחקר עצמאי.",
+        "en": "The Dartmouth Workshop is widely considered one of the birth moments of Artificial Intelligence as an independent research field."
+      },
+      "keywords": ["Dartmouth", "John McCarthy", "Artificial Intelligence", "דארטמות", "ג׳ון מקארתי"]
+    },
+    {
+      "id": "machine-learning",
+      "period": { "he": "שנות ה־80 וה־90", "en": "1980s–1990s" },
+      "title": { "he": "עליית למידת המכונה", "en": "The Rise of Machine Learning" },
+      "summary": {
+        "he": "במקום לכתוב כללים ידניים בלבד, חוקרים החלו לפתח מערכות הלומדות דפוסים מתוך נתונים.",
+        "en": "Instead of relying only on hand-written rules, researchers developed systems that learn patterns from data."
+      },
+      "keywords": ["machine learning", "למידת מכונה", "data", "נתונים"]
+    },
+    {
+      "id": "deep-learning",
+      "period": { "he": "2010 ואילך", "en": "2010 onward" },
+      "title": { "he": "מהפכת הלמידה העמוקה", "en": "The Deep Learning Revolution" },
+      "summary": {
+        "he": "למידה עמוקה, רשתות עצביות גדולות וכוח מחשוב מתקדם הובילו לפריצות דרך בזיהוי תמונה, דיבור ושפה.",
+        "en": "Deep learning, large neural networks, and advanced computing power enabled breakthroughs in image recognition, speech, and language."
+      },
+      "keywords": ["deep learning", "neural networks", "למידה עמוקה", "רשתות עצביות"]
+    },
+    {
+      "id": "generative-ai",
+      "period": { "he": "2020 ואילך", "en": "2020 onward" },
+      "title": { "he": "בינה מלאכותית יוצרת", "en": "Generative AI" },
+      "summary": {
+        "he": "מודלים יוצרים החלו להפיק טקסט, תמונות, קוד, מוזיקה ווידאו, והפכו את הבינה המלאכותית לנגישה למיליוני משתמשים.",
+        "en": "Generative models began producing text, images, code, music, and video, making AI accessible to millions of users."
+      },
+      "keywords": ["generative AI", "LLM", "ChatGPT", "בינה מלאכותית יוצרת", "מודלי שפה"]
+    }
+  ],
+  "companies": [
+    {
+      "name": "OpenAI",
+      "region": "global",
+      "fieldLabel": { "he": "תחום", "en": "Field" },
+      "field": { "he": "מודלי שפה, בינה מלאכותית יוצרת וצ׳אטבוטים", "en": "Language models, generative AI, and chatbots" },
+      "summary": {
+        "he": "חברת AI מובילה שפיתחה את ChatGPT ומשפחת מודלים מתקדמים לשפה, קוד, תמונה וקול.",
+        "en": "A leading AI company that developed ChatGPT and advanced models for language, code, image, and voice."
+      },
+      "keywords": ["OpenAI", "ChatGPT", "GPT", "מודלי שפה"]
+    },
+    {
+      "name": "Google DeepMind",
+      "region": "global",
+      "fieldLabel": { "he": "תחום", "en": "Field" },
+      "field": { "he": "מחקר AI, מודלים כלליים, מדע וחיזוק למידה", "en": "AI research, general models, science, and reinforcement learning" },
+      "summary": {
+        "he": "גוף מחקר ופיתוח של גוגל, המוכר מפרויקטים כמו AlphaGo, AlphaFold ומודלי Gemini.",
+        "en": "Google's AI research and development lab, known for projects such as AlphaGo, AlphaFold, and Gemini models."
+      },
+      "keywords": ["DeepMind", "Google", "AlphaGo", "AlphaFold", "Gemini"]
+    },
+    {
+      "name": "Anthropic",
+      "region": "global",
+      "fieldLabel": { "he": "תחום", "en": "Field" },
+      "field": { "he": "מודלי שפה ובטיחות AI", "en": "Language models and AI safety" },
+      "summary": {
+        "he": "חברה אמריקאית שפיתחה את Claude ומתמקדת בבניית מערכות AI שימושיות, זהירות ובטוחות יותר.",
+        "en": "An American company that developed Claude and focuses on building useful, careful, and safer AI systems."
+      },
+      "keywords": ["Anthropic", "Claude", "AI safety", "בטיחות"]
+    },
+    {
+      "name": "NVIDIA",
+      "region": "global",
+      "fieldLabel": { "he": "תחום", "en": "Field" },
+      "field": { "he": "שבבים, מעבדים גרפיים ותשתיות מחשוב ל־AI", "en": "Chips, GPUs, and AI computing infrastructure" },
+      "summary": {
+        "he": "חברה מרכזית בתשתיות החומרה של מהפכת ה־AI, בזכות מעבדים גרפיים וכלי תוכנה לאימון והרצת מודלים.",
+        "en": "A central company in AI hardware infrastructure, known for GPUs and software tools used to train and run models."
+      },
+      "keywords": ["NVIDIA", "GPU", "chips", "שבבים"]
+    },
+    {
+      "name": "AI21 Labs",
+      "region": "israel",
+      "fieldLabel": { "he": "תחום", "en": "Field" },
+      "field": { "he": "מודלי שפה וכלי כתיבה מבוססי AI", "en": "Language models and AI writing tools" },
+      "summary": {
+        "he": "חברת AI ישראלית בולטת שפיתחה מודלי שפה וכלים לכתיבה, הבנה ויצירת טקסט.",
+        "en": "A notable Israeli AI company developing language models and tools for writing, understanding, and generating text."
+      },
+      "keywords": ["AI21", "AI21 Labs", "Jurassic", "ישראל", "מודלי שפה"]
+    },
+    {
+      "name": "Wiz",
+      "region": "israel",
+      "fieldLabel": { "he": "תחום", "en": "Field" },
+      "field": { "he": "סייבר ענן וניתוח סיכונים", "en": "Cloud security and risk analysis" },
+      "summary": {
+        "he": "חברת סייבר ישראלית מצליחה, המשתמשת באנליטיקה מתקדמת ואוטומציה כדי לזהות סיכונים בסביבות ענן.",
+        "en": "A successful Israeli cybersecurity company using advanced analytics and automation to identify risks in cloud environments."
+      },
+      "keywords": ["Wiz", "cyber", "cloud security", "סייבר", "ענן"]
+    },
+    {
+      "name": "Hailo",
+      "region": "israel",
+      "fieldLabel": { "he": "תחום", "en": "Field" },
+      "field": { "he": "שבבי AI למכשירי קצה", "en": "AI chips for edge devices" },
+      "summary": {
+        "he": "חברה ישראלית המפתחת שבבים להרצת בינה מלאכותית במכשירים, מצלמות, רכבים ומערכות קצה.",
+        "en": "An Israeli company developing chips for running AI on devices, cameras, vehicles, and edge systems."
+      },
+      "keywords": ["Hailo", "AI chips", "edge AI", "שבבים"]
+    },
+    {
+      "name": "Aidoc",
+      "region": "israel",
+      "fieldLabel": { "he": "תחום", "en": "Field" },
+      "field": { "he": "בינה מלאכותית בדימות רפואי", "en": "AI for medical imaging" },
+      "summary": {
+        "he": "חברת בריאות דיגיטלית ישראלית המפתחת מערכות AI המסייעות לרדיולוגים לזהות ממצאים בבדיקות דימות.",
+        "en": "An Israeli digital health company developing AI systems that help radiologists detect findings in medical scans."
+      },
+      "keywords": ["Aidoc", "medical imaging", "רפואה", "דימות"]
+    },
+    {
+      "name": "Gong",
+      "region": "israel",
+      "fieldLabel": { "he": "תחום", "en": "Field" },
+      "field": { "he": "ניתוח שיחות מכירה ומודיעין עסקי", "en": "Sales conversation intelligence and business analytics" },
+      "summary": {
+        "he": "חברה ישראלית־אמריקאית המשתמשת ב־AI לניתוח שיחות מכירה, לקוחות ותהליכים עסקיים.",
+        "en": "An Israeli-American company using AI to analyze sales calls, customers, and business processes."
+      },
+      "keywords": ["Gong", "sales", "conversation intelligence", "מכירות"]
+    }
+  ],
+  "timeline": [
+    {
+      "year": "1943",
+      "title": { "he": "מודל מתמטי של נוירון", "en": "A Mathematical Model of a Neuron" },
+      "summary": {
+        "he": "מקולוק ופיטס פרסמו מודל תיאורטי מוקדם שהשפיע על התפתחות הרשתות העצביות.",
+        "en": "McCulloch and Pitts published an early theoretical model that influenced the development of neural networks."
+      },
+      "keywords": ["McCulloch", "Pitts", "neuron", "נוירון"]
+    },
+    {
+      "year": "1950",
+      "title": { "he": "מבחן טיורינג", "en": "The Turing Test" },
+      "summary": {
+        "he": "טיורינג הציג שאלה מכוננת: האם מכונות יכולות לחשוב?", "en": "Turing introduced a defining question: can machines think?" },
+      "keywords": ["Turing", "מבחן טיורינג"]
+    },
+    {
+      "year": "1956",
+      "title": { "he": "לידת המונח Artificial Intelligence", "en": "The Birth of the Term Artificial Intelligence" },
+      "summary": {
+        "he": "סדנת דארטמות׳ עזרה להפוך את הבינה המלאכותית לתחום מחקר מוגדר.",
+        "en": "The Dartmouth Workshop helped establish AI as a distinct research field."
+      },
+      "keywords": ["Dartmouth", "Artificial Intelligence"]
+    },
+    {
+      "year": "2012",
+      "title": { "he": "פריצת דרך בלמידה עמוקה", "en": "A Breakthrough in Deep Learning" },
+      "summary": {
+        "he": "הצלחות בזיהוי תמונה הראו את הכוח של רשתות עצביות גדולות וכוח מחשוב מודרני.",
+        "en": "Successes in image recognition demonstrated the power of large neural networks and modern computing."
+      },
+      "keywords": ["deep learning", "ImageNet", "למידה עמוקה"]
+    },
+    {
+      "year": "2022",
+      "title": { "he": "עידן הצ׳אטבוטים המודרניים", "en": "The Era of Modern Chatbots" },
+      "summary": {
+        "he": "צ׳אטבוטים מבוססי מודלי שפה גדולים הפכו את ה־AI לכלי יומיומי עבור ציבור רחב.",
+        "en": "Chatbots based on large language models made AI an everyday tool for a broad public."
+      },
+      "keywords": ["ChatGPT", "LLM", "צ׳אטבוט", "מודלי שפה"]
+    }
+  ]
+}
