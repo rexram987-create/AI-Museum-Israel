@@ -6,18 +6,18 @@ const translations = {
     navGuide: "מדריך חכם",
     heroEyebrow: "מוזיאון דיגיטלי אינטראקטיבי",
     heroTitle: "המוזיאון הישראלי לבינה מלאכותית",
-    heroText: "אתר דו־לשוני על ההיסטוריה של הבינה המלאכותית, החברות המובילות בעולם, והחברות הישראליות שמעצבות את עתיד התחום.",
+    heroText: "שער ראשי קצר לפרויקט מתפתח על ההיסטוריה של הבינה המלאכותית ועל החברות שמובילות את התחום בישראל ובעולם.",
     heroAsk: "שאל את המדריך",
     heroExplore: "גלה חברות",
-    historyEyebrow: "מהרעיון המדעי אל המציאות היומיומית",
-    historyTitle: "היסטוריה קצרה של הבינה המלאכותית",
-    companiesEyebrow: "חברות מובילות",
-    companiesTitle: "עולם ה־AI וחברות ישראליות בולטות",
+    historyEyebrow: "תקציר ראשוני",
+    historyTitle: "נקודות פתיחה בהיסטוריה של ה־AI",
+    companiesEyebrow: "טעימה ראשונה",
+    companiesTitle: "חברות AI מרכזיות",
     filterAll: "הכול",
     filterGlobal: "עולמי",
     filterIsrael: "ישראל",
-    timelineEyebrow: "אבני דרך",
-    timelineTitle: "ציר זמן אינטראקטיבי",
+    timelineEyebrow: "בקצרה",
+    timelineTitle: "אבני דרך נבחרות",
     guideEyebrow: "גרסה ראשונה — מקומית וחינמית",
     guideTitle: "המדריך החכם של המוזיאון",
     guideIntro: "כתוב שאלה בעברית או באנגלית. המדריך מחפש במאגר המידע המקומי של האתר ועונה לפי הערכים הקיימים.",
@@ -34,18 +34,18 @@ const translations = {
     navGuide: "Smart Guide",
     heroEyebrow: "Interactive Digital Museum",
     heroTitle: "The Israeli Museum of Artificial Intelligence",
-    heroText: "A bilingual website about the history of Artificial Intelligence, the leading global companies, and the Israeli companies shaping the future of the field.",
+    heroText: "A short landing page for a growing project about the history of AI and the companies leading the field in Israel and around the world.",
     heroAsk: "Ask the Guide",
     heroExplore: "Explore Companies",
-    historyEyebrow: "From scientific vision to everyday reality",
-    historyTitle: "A Short History of Artificial Intelligence",
-    companiesEyebrow: "Leading Companies",
-    companiesTitle: "The AI World and Notable Israeli Companies",
+    historyEyebrow: "First Overview",
+    historyTitle: "Starting Points in AI History",
+    companiesEyebrow: "First Selection",
+    companiesTitle: "Key AI Companies",
     filterAll: "All",
     filterGlobal: "Global",
     filterIsrael: "Israel",
-    timelineEyebrow: "Milestones",
-    timelineTitle: "Interactive Timeline",
+    timelineEyebrow: "In Brief",
+    timelineTitle: "Selected Milestones",
     guideEyebrow: "First version — local and free",
     guideTitle: "The Museum Smart Guide",
     guideIntro: "Write a question in Hebrew or English. The guide searches the local knowledge base and answers from existing entries.",
@@ -95,7 +95,8 @@ function localized(item, field) {
 
 function renderHistory() {
   const grid = $("#historyGrid");
-  grid.innerHTML = knowledge.history.map((item) => `
+  const featuredHistory = knowledge.history.slice(0, 3);
+  grid.innerHTML = featuredHistory.map((item) => `
     <article class="card">
       <span class="badge">${localized(item, "period")}</span>
       <h3>${localized(item, "title")}</h3>
@@ -107,7 +108,8 @@ function renderHistory() {
 function renderCompanies(filter = document.querySelector(".filter-btn.active")?.dataset.filter || "all") {
   const grid = $("#companiesGrid");
   const filtered = filter === "all" ? knowledge.companies : knowledge.companies.filter((company) => company.region === filter);
-  grid.innerHTML = filtered.map((company) => `
+  const featuredCompanies = filtered.slice(0, 4);
+  grid.innerHTML = featuredCompanies.map((company) => `
     <article class="card">
       <span class="badge">${company.region === "israel" ? t("filterIsrael") : t("filterGlobal")}</span>
       <h3>${company.name}</h3>
@@ -119,7 +121,8 @@ function renderCompanies(filter = document.querySelector(".filter-btn.active")?.
 
 function renderTimeline() {
   const list = $("#timelineList");
-  list.innerHTML = knowledge.timeline.map((item) => `
+  const featuredTimeline = knowledge.timeline.slice(0, 3);
+  list.innerHTML = featuredTimeline.map((item) => `
     <article class="timeline-item">
       <div class="timeline-year">${item.year}</div>
       <h3>${localized(item, "title")}</h3>
