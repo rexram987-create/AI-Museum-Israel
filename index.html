@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Museum Israel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="#home" class="logo">AI Museum Israel</a>
+      <div class="nav-links">
+        <a href="#history" data-i18n="navHistory">היסטוריה</a>
+        <a href="#companies" data-i18n="navCompanies">חברות</a>
+        <a href="#timeline" data-i18n="navTimeline">ציר זמן</a>
+        <a href="#guide" data-i18n="navGuide">מדריך חכם</a>
+      </div>
+      <button id="languageToggle" class="lang-btn">English</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-card">
+        <p class="eyebrow" data-i18n="heroEyebrow">מוזיאון דיגיטלי אינטראקטיבי</p>
+        <h1 data-i18n="heroTitle">המוזיאון הישראלי לבינה מלאכותית</h1>
+        <p data-i18n="heroText">אתר דו־לשוני על ההיסטוריה של הבינה המלאכותית, החברות המובילות בעולם, והחברות הישראליות שמעצבות את עתיד התחום.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#guide" data-i18n="heroAsk">שאל את המדריך</a>
+          <a class="secondary-btn" href="#companies" data-i18n="heroExplore">גלה חברות</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="history" class="section">
+      <div class="section-title">
+        <p class="eyebrow" data-i18n="historyEyebrow">מהרעיון המדעי אל המציאות היומיומית</p>
+        <h2 data-i18n="historyTitle">היסטוריה קצרה של הבינה המלאכותית</h2>
+      </div>
+      <div id="historyGrid" class="cards-grid"></div>
+    </section>
+
+    <section id="companies" class="section">
+      <div class="section-title">
+        <p class="eyebrow" data-i18n="companiesEyebrow">חברות מובילות</p>
+        <h2 data-i18n="companiesTitle">עולם ה־AI וחברות ישראליות בולטות</h2>
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all" data-i18n="filterAll">הכול</button>
+        <button class="filter-btn" data-filter="global" data-i18n="filterGlobal">עולמי</button>
+        <button class="filter-btn" data-filter="israel" data-i18n="filterIsrael">ישראל</button>
+      </div>
+      <div id="companiesGrid" class="cards-grid"></div>
+    </section>
+
+    <section id="timeline" class="section">
+      <div class="section-title">
+        <p class="eyebrow" data-i18n="timelineEyebrow">אבני דרך</p>
+        <h2 data-i18n="timelineTitle">ציר זמן אינטראקטיבי</h2>
+      </div>
+      <div id="timelineList" class="timeline"></div>
+    </section>
+
+    <section id="guide" class="section guide-section">
+      <div class="section-title">
+        <p class="eyebrow" data-i18n="guideEyebrow">גרסה ראשונה — מקומית וחינמית</p>
+        <h2 data-i18n="guideTitle">המדריך החכם של המוזיאון</h2>
+        <p data-i18n="guideIntro">כתוב שאלה בעברית או באנגלית. המדריך מחפש במאגר המידע המקומי של האתר ועונה לפי הערכים הקיימים.</p>
+      </div>
+      <div class="guide-box">
+        <input id="questionInput" type="search" data-i18n-placeholder="questionPlaceholder" placeholder="לדוגמה: מי הקים את AI21 Labs?" />
+        <button id="askButton" class="primary-btn" data-i18n="askButton">חפש תשובה</button>
+        <div id="answerBox" class="answer-box"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="footerText">AI Museum Israel — פרויקט לימודי, דו־לשוני, ומתפתח.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
