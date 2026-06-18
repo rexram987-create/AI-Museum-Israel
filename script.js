@@ -1,14 +1,15 @@
 const translations = {
   he: {
     navHistory: "היסטוריה",
-    navCompanies: "חברות",
+    navGlobalCompanies: "חברות עולמיות",
+    navIsraeliCompanies: "חברות ישראליות",
     navTimeline: "ציר זמן",
     navGuide: "מדריך חכם",
     heroEyebrow: "מוזיאון דיגיטלי אינטראקטיבי",
     heroTitle: "המוזיאון הישראלי לבינה מלאכותית",
     heroText: "שער ראשי קצר לפרויקט מתפתח על ההיסטוריה של הבינה המלאכותית ועל החברות שמובילות את התחום בישראל ובעולם.",
     heroAsk: "שאל את המדריך",
-    heroExplore: "גלה חברות",
+    heroExploreHistory: "התחל מההיסטוריה",
     historyEyebrow: "תקציר ראשוני",
     historyTitle: "נקודות פתיחה בהיסטוריה של ה־AI",
     companiesEyebrow: "טעימה ראשונה",
@@ -25,18 +26,33 @@ const translations = {
     askButton: "חפש תשובה",
     footerText: "AI Museum Israel — פרויקט לימודי, דו־לשוני, ומתפתח.",
     noAnswer: "לא מצאתי תשובה ברורה במאגר המקומי. כדאי להוסיף ערך מתאים לקובץ הידע.",
-    resultPrefix: "מצאתי ערך מתאים:"
+    resultPrefix: "מצאתי ערך מתאים:",
+    readMoreHistory: "לעמוד ההיסטוריה המלא",
+    globalCompaniesPage: "חברות עולמיות",
+    israeliCompaniesPage: "חברות ישראליות",
+    fullTimeline: "לציר הזמן המלא",
+    historyPageTitle: "היסטוריה של הבינה המלאכותית",
+    historyPageText: "עמוד זה ירכז בהמשך את כל ההתפתחות ההיסטורית של התחום: חוקרים, רעיונות, פריצות דרך, תקופות שפל ומהפכות טכנולוגיות.",
+    globalPageTitle: "חברות AI מובילות בעולם",
+    globalPageText: "עמוד לחברות הבינלאומיות המרכזיות שמעצבות את תחום הבינה המלאכותית.",
+    israelPageTitle: "חברות AI ישראליות מובילות",
+    israelPageText: "עמוד לחברות ישראליות בולטות בתחומי מודלי שפה, סייבר, שבבים, רפואה, מכירות ויצירה.",
+    timelinePageTitle: "ציר הזמן של הבינה המלאכותית",
+    timelinePageText: "עמוד כרונולוגי שיגדל בהדרגה ויכלול אירועים מרכזיים מראשית התחום ועד היום.",
+    guidePageTitle: "המדריך החכם",
+    guidePageText: "גרסה ראשונה של מדריך מקומי שמחפש בתוך מאגר הידע של האתר. בהמשך אפשר יהיה להפוך אותו לעוזר AI מתקדם יותר."
   },
   en: {
     navHistory: "History",
-    navCompanies: "Companies",
+    navGlobalCompanies: "Global Companies",
+    navIsraeliCompanies: "Israeli Companies",
     navTimeline: "Timeline",
     navGuide: "Smart Guide",
     heroEyebrow: "Interactive Digital Museum",
     heroTitle: "The Israeli Museum of Artificial Intelligence",
     heroText: "A short landing page for a growing project about the history of AI and the companies leading the field in Israel and around the world.",
     heroAsk: "Ask the Guide",
-    heroExplore: "Explore Companies",
+    heroExploreHistory: "Start with History",
     historyEyebrow: "First Overview",
     historyTitle: "Starting Points in AI History",
     companiesEyebrow: "First Selection",
@@ -53,11 +69,25 @@ const translations = {
     askButton: "Search Answer",
     footerText: "AI Museum Israel — an educational, bilingual, evolving project.",
     noAnswer: "I could not find a clear answer in the local knowledge base. Consider adding a relevant entry.",
-    resultPrefix: "I found a matching entry:"
+    resultPrefix: "I found a matching entry:",
+    readMoreHistory: "Full History Page",
+    globalCompaniesPage: "Global Companies",
+    israeliCompaniesPage: "Israeli Companies",
+    fullTimeline: "Full Timeline",
+    historyPageTitle: "History of Artificial Intelligence",
+    historyPageText: "This page will gradually collect the full historical development of the field: researchers, ideas, breakthroughs, AI winters, and technological revolutions.",
+    globalPageTitle: "Leading AI Companies Worldwide",
+    globalPageText: "A page for major international companies shaping the field of Artificial Intelligence.",
+    israelPageTitle: "Leading Israeli AI Companies",
+    israelPageText: "A page for notable Israeli companies in language models, cybersecurity, chips, medicine, sales, and creative AI.",
+    timelinePageTitle: "The AI Timeline",
+    timelinePageText: "A chronological page that will grow over time and include major events from the early field to the present day.",
+    guidePageTitle: "The Smart Guide",
+    guidePageText: "A first version of a local guide that searches inside the website knowledge base. Later it can become a more advanced AI assistant."
   }
 };
 
-let currentLanguage = "he";
+let currentLanguage = localStorage.getItem("aiMuseumLanguage") || "he";
 let knowledge = { history: [], companies: [], timeline: [] };
 
 const $ = (selector) => document.querySelector(selector);
@@ -76,7 +106,9 @@ function t(key) {
 function applyLanguage() {
   document.documentElement.lang = currentLanguage;
   document.documentElement.dir = currentLanguage === "he" ? "rtl" : "ltr";
-  $("#languageToggle").textContent = currentLanguage === "he" ? "English" : "עברית";
+
+  const toggle = $("#languageToggle");
+  if (toggle) toggle.textContent = currentLanguage === "he" ? "English" : "עברית";
 
   $$('[data-i18n]').forEach((el) => {
     el.textContent = t(el.dataset.i18n);
@@ -93,48 +125,62 @@ function localized(item, field) {
   return item[field]?.[currentLanguage] || item[field]?.he || item[field] || "";
 }
 
-function renderHistory() {
-  const grid = $("#historyGrid");
-  const featuredHistory = knowledge.history.slice(0, 3);
-  grid.innerHTML = featuredHistory.map((item) => `
+function cardTemplate(item) {
+  const title = item.name || localized(item, "title");
+  const badge = localized(item, "period") || (item.region === "israel" ? t("filterIsrael") : t("filterGlobal"));
+  const field = localized(item, "field");
+  return `
     <article class="card">
-      <span class="badge">${localized(item, "period")}</span>
-      <h3>${localized(item, "title")}</h3>
+      <span class="badge">${badge}</span>
+      <h3>${title}</h3>
       <p>${localized(item, "summary")}</p>
+      ${field ? `<p><strong>${localized(item, "fieldLabel")}:</strong> ${field}</p>` : ""}
     </article>
-  `).join("");
+  `;
 }
 
-function renderCompanies(filter = document.querySelector(".filter-btn.active")?.dataset.filter || "all") {
-  const grid = $("#companiesGrid");
-  const filtered = filter === "all" ? knowledge.companies : knowledge.companies.filter((company) => company.region === filter);
-  const featuredCompanies = filtered.slice(0, 4);
-  grid.innerHTML = featuredCompanies.map((company) => `
-    <article class="card">
-      <span class="badge">${company.region === "israel" ? t("filterIsrael") : t("filterGlobal")}</span>
-      <h3>${company.name}</h3>
-      <p>${localized(company, "summary")}</p>
-      <p><strong>${localized(company, "fieldLabel")}:</strong> ${localized(company, "field")}</p>
-    </article>
-  `).join("");
-}
-
-function renderTimeline() {
-  const list = $("#timelineList");
-  const featuredTimeline = knowledge.timeline.slice(0, 3);
-  list.innerHTML = featuredTimeline.map((item) => `
+function timelineTemplate(item) {
+  return `
     <article class="timeline-item">
       <div class="timeline-year">${item.year}</div>
       <h3>${localized(item, "title")}</h3>
       <p>${localized(item, "summary")}</p>
     </article>
-  `).join("");
+  `;
+}
+
+function renderHome() {
+  const historyGrid = $("#historyGrid");
+  if (historyGrid) historyGrid.innerHTML = knowledge.history.slice(0, 3).map(cardTemplate).join("");
+
+  const companiesGrid = $("#companiesGrid");
+  if (companiesGrid) {
+    const activeFilter = document.querySelector(".filter-btn.active")?.dataset.filter || "all";
+    const filtered = activeFilter === "all" ? knowledge.companies : knowledge.companies.filter((company) => company.region === activeFilter);
+    companiesGrid.innerHTML = filtered.slice(0, 4).map(cardTemplate).join("");
+  }
+
+  const timelineList = $("#timelineList");
+  if (timelineList) timelineList.innerHTML = knowledge.timeline.slice(0, 3).map(timelineTemplate).join("");
+}
+
+function renderFullPages() {
+  const fullHistory = $("#fullHistoryGrid");
+  if (fullHistory) fullHistory.innerHTML = knowledge.history.map(cardTemplate).join("");
+
+  const globalCompanies = $("#globalCompaniesGrid");
+  if (globalCompanies) globalCompanies.innerHTML = knowledge.companies.filter((company) => company.region === "global").map(cardTemplate).join("");
+
+  const israeliCompanies = $("#israeliCompaniesGrid");
+  if (israeliCompanies) israeliCompanies.innerHTML = knowledge.companies.filter((company) => company.region === "israel").map(cardTemplate).join("");
+
+  const fullTimeline = $("#fullTimelineList");
+  if (fullTimeline) fullTimeline.innerHTML = knowledge.timeline.map(timelineTemplate).join("");
 }
 
 function renderAll() {
-  renderHistory();
-  renderCompanies();
-  renderTimeline();
+  renderHome();
+  renderFullPages();
 }
 
 function normalizeText(text) {
@@ -175,10 +221,11 @@ function searchKnowledge(query) {
 }
 
 function answerQuestion() {
-  const query = $("#questionInput").value;
-  const result = searchKnowledge(query);
+  const input = $("#questionInput");
   const answerBox = $("#answerBox");
+  if (!input || !answerBox) return;
 
+  const result = searchKnowledge(input.value);
   if (!result) {
     answerBox.textContent = t("noAnswer");
     return;
@@ -197,23 +244,32 @@ function answerQuestion() {
   `;
 }
 
-$("#languageToggle").addEventListener("click", () => {
-  currentLanguage = currentLanguage === "he" ? "en" : "he";
-  applyLanguage();
-});
+const languageToggle = $("#languageToggle");
+if (languageToggle) {
+  languageToggle.addEventListener("click", () => {
+    currentLanguage = currentLanguage === "he" ? "en" : "he";
+    localStorage.setItem("aiMuseumLanguage", currentLanguage);
+    applyLanguage();
+  });
+}
 
 $$('.filter-btn').forEach((button) => {
   button.addEventListener("click", () => {
     $$('.filter-btn').forEach((btn) => btn.classList.remove("active"));
     button.classList.add("active");
-    renderCompanies(button.dataset.filter);
+    renderHome();
   });
 });
 
-$("#askButton").addEventListener("click", answerQuestion);
-$("#questionInput").addEventListener("keydown", (event) => {
-  if (event.key === "Enter") answerQuestion();
-});
+const askButton = $("#askButton");
+if (askButton) askButton.addEventListener("click", answerQuestion);
+
+const questionInput = $("#questionInput");
+if (questionInput) {
+  questionInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") answerQuestion();
+  });
+}
 
 loadKnowledge();
 applyLanguage();
