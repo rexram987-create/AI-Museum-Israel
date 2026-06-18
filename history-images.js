@@ -1,4 +1,9 @@
 const timelineImageMap = {
+  "1943": {
+    src: "assets/images/history/artificial-neuron.jpg",
+    alt: "Artificial neuron concept",
+    credit: "Artificial neuron / McCulloch-Pitts image — see image credits"
+  },
   "1950": {
     src: "assets/images/history/alan-turing.jpg",
     alt: "Alan Turing",
