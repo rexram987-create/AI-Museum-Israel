@@ -6,15 +6,16 @@
   <title>AI Museum Israel</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body data-page="home">
   <header class="site-header">
     <nav class="navbar">
-      <a href="#home" class="logo">AI Museum Israel</a>
+      <a href="index.html" class="logo">AI Museum Israel</a>
       <div class="nav-links">
-        <a href="#history" data-i18n="navHistory">היסטוריה</a>
-        <a href="#companies" data-i18n="navCompanies">חברות</a>
-        <a href="#timeline" data-i18n="navTimeline">ציר זמן</a>
-        <a href="#guide" data-i18n="navGuide">מדריך חכם</a>
+        <a href="history.html" data-i18n="navHistory">היסטוריה</a>
+        <a href="global-companies.html" data-i18n="navGlobalCompanies">חברות עולמיות</a>
+        <a href="israeli-companies.html" data-i18n="navIsraeliCompanies">חברות ישראליות</a>
+        <a href="timeline.html" data-i18n="navTimeline">ציר זמן</a>
+        <a href="guide.html" data-i18n="navGuide">מדריך חכם</a>
       </div>
       <button id="languageToggle" class="lang-btn">English</button>
     </nav>
@@ -25,26 +26,27 @@
       <div class="hero-card">
         <p class="eyebrow" data-i18n="heroEyebrow">מוזיאון דיגיטלי אינטראקטיבי</p>
         <h1 data-i18n="heroTitle">המוזיאון הישראלי לבינה מלאכותית</h1>
-        <p data-i18n="heroText">אתר דו־לשוני על ההיסטוריה של הבינה המלאכותית, החברות המובילות בעולם, והחברות הישראליות שמעצבות את עתיד התחום.</p>
+        <p data-i18n="heroText">שער ראשי קצר לפרויקט מתפתח על ההיסטוריה של הבינה המלאכותית ועל החברות שמובילות את התחום בישראל ובעולם.</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="#guide" data-i18n="heroAsk">שאל את המדריך</a>
-          <a class="secondary-btn" href="#companies" data-i18n="heroExplore">גלה חברות</a>
+          <a class="primary-btn" href="guide.html" data-i18n="heroAsk">שאל את המדריך</a>
+          <a class="secondary-btn" href="history.html" data-i18n="heroExploreHistory">התחל מההיסטוריה</a>
         </div>
       </div>
     </section>
 
-    <section id="history" class="section">
+    <section class="section">
       <div class="section-title">
-        <p class="eyebrow" data-i18n="historyEyebrow">מהרעיון המדעי אל המציאות היומיומית</p>
-        <h2 data-i18n="historyTitle">היסטוריה קצרה של הבינה המלאכותית</h2>
+        <p class="eyebrow" data-i18n="historyEyebrow">תקציר ראשוני</p>
+        <h2 data-i18n="historyTitle">נקודות פתיחה בהיסטוריה של ה־AI</h2>
       </div>
       <div id="historyGrid" class="cards-grid"></div>
+      <div class="section-actions"><a class="secondary-btn" href="history.html" data-i18n="readMoreHistory">לעמוד ההיסטוריה המלא</a></div>
     </section>
 
-    <section id="companies" class="section">
+    <section class="section">
       <div class="section-title">
-        <p class="eyebrow" data-i18n="companiesEyebrow">חברות מובילות</p>
-        <h2 data-i18n="companiesTitle">עולם ה־AI וחברות ישראליות בולטות</h2>
+        <p class="eyebrow" data-i18n="companiesEyebrow">טעימה ראשונה</p>
+        <h2 data-i18n="companiesTitle">חברות AI מרכזיות</h2>
       </div>
       <div class="filters">
         <button class="filter-btn active" data-filter="all" data-i18n="filterAll">הכול</button>
@@ -52,27 +54,19 @@
         <button class="filter-btn" data-filter="israel" data-i18n="filterIsrael">ישראל</button>
       </div>
       <div id="companiesGrid" class="cards-grid"></div>
+      <div class="section-actions">
+        <a class="secondary-btn" href="global-companies.html" data-i18n="globalCompaniesPage">חברות עולמיות</a>
+        <a class="secondary-btn" href="israeli-companies.html" data-i18n="israeliCompaniesPage">חברות ישראליות</a>
+      </div>
     </section>
 
-    <section id="timeline" class="section">
+    <section class="section">
       <div class="section-title">
-        <p class="eyebrow" data-i18n="timelineEyebrow">אבני דרך</p>
-        <h2 data-i18n="timelineTitle">ציר זמן אינטראקטיבי</h2>
+        <p class="eyebrow" data-i18n="timelineEyebrow">בקצרה</p>
+        <h2 data-i18n="timelineTitle">אבני דרך נבחרות</h2>
       </div>
       <div id="timelineList" class="timeline"></div>
-    </section>
-
-    <section id="guide" class="section guide-section">
-      <div class="section-title">
-        <p class="eyebrow" data-i18n="guideEyebrow">גרסה ראשונה — מקומית וחינמית</p>
-        <h2 data-i18n="guideTitle">המדריך החכם של המוזיאון</h2>
-        <p data-i18n="guideIntro">כתוב שאלה בעברית או באנגלית. המדריך מחפש במאגר המידע המקומי של האתר ועונה לפי הערכים הקיימים.</p>
-      </div>
-      <div class="guide-box">
-        <input id="questionInput" type="search" data-i18n-placeholder="questionPlaceholder" placeholder="לדוגמה: מי הקים את AI21 Labs?" />
-        <button id="askButton" class="primary-btn" data-i18n="askButton">חפש תשובה</button>
-        <div id="answerBox" class="answer-box"></div>
-      </div>
+      <div class="section-actions"><a class="secondary-btn" href="timeline.html" data-i18n="fullTimeline">לציר הזמן המלא</a></div>
     </section>
   </main>
 
