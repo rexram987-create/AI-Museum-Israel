@@ -7,6 +7,10 @@ const globalCompanyVisuals = {
     logo: "assets/images/companies/deepmind-logo.jpg",
     alt: "Google DeepMind logo"
   },
+  "NVIDIA": {
+    logo: "assets/images/companies/nvidia-logo.jpg",
+    alt: "NVIDIA logo"
+  },
   "xAI": {
     logo: "assets/images/companies/xai-logo.jpg",
     alt: "xAI logo"
