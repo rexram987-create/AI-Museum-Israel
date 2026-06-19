@@ -1,0 +1,55 @@
+.company-page-link {
+  display: inline-flex;
+  margin-top: 1rem;
+}
+
+.company-profile-header {
+  display: grid;
+  grid-template-columns: 1fr minmax(180px, 280px);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.company-profile-logo {
+  min-height: 150px;
+  height: auto;
+}
+
+.company-profile-logo .company-logo {
+  max-height: 100px;
+}
+
+.company-english-summary {
+  direction: ltr;
+  text-align: left;
+}
+
+.company-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.company-profile-wide {
+  grid-column: 1 / -1;
+}
+
+.company-profile-card h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.mini-timeline p {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.mini-timeline p:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .company-profile-header {
+    grid-template-columns: 1fr;
+  }
+}
