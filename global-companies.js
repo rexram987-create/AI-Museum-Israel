@@ -17,41 +17,6 @@ const globalCompanyVisuals = {
   }
 };
 
-const extraGlobalCompanies = {
-  he: [
-    {
-      name: "xAI",
-      badge: "עולמי",
-      summary: "חברת בינה מלאכותית אמריקאית שהוקמה על ידי אילון מאסק ומתמקדת במודלי שפה, צ׳אטבוטים וחיבור למערכת X.",
-      field: "מודלי שפה, Grok, צ׳אטבוטים ו־AI בזמן אמת"
-    },
-    {
-      name: "Mistral AI",
-      badge: "עולמי",
-      summary: "חברת AI צרפתית בולטת המתמקדת במודלים יעילים, מודלים פתוחים וכלי בינה מלאכותית לארגונים ולמפתחים.",
-      field: "מודלי שפה פתוחים, מודלים יעילים ו־AI אירופי"
-    }
-  ],
-  en: [
-    {
-      name: "xAI",
-      badge: "Global",
-      summary: "An American AI company founded by Elon Musk, focused on language models, chatbots, and integration with the X platform.",
-      field: "Language models, Grok, chatbots, and real-time AI"
-    },
-    {
-      name: "Mistral AI",
-      badge: "Global",
-      summary: "A notable French AI company focused on efficient models, open models, and AI tools for organizations and developers.",
-      field: "Open language models, efficient models, and European AI"
-    }
-  ]
-};
-
-function currentMuseumLanguage() {
-  return document.documentElement.lang === "en" ? "en" : "he";
-}
-
 function createCompanyLogo(name) {
   const visual = globalCompanyVisuals[name];
   if (!visual) return null;
@@ -73,35 +38,10 @@ function enhanceExistingCompanyCards() {
   });
 }
 
-function addExtraGlobalCompanies() {
-  const grid = document.querySelector("#globalCompaniesGrid");
-  if (!grid || grid.dataset.extraCompaniesAdded === "true") return;
-
-  const lang = currentMuseumLanguage();
-  extraGlobalCompanies[lang].forEach((company) => {
-    if ([...grid.querySelectorAll("h3")].some((h3) => h3.textContent.trim() === company.name)) return;
-
-    const card = document.createElement("article");
-    card.className = "card company-card";
-    const logo = createCompanyLogo(company.name);
-    card.innerHTML = `
-      <span class="badge">${company.badge}</span>
-      <h3>${company.name}</h3>
-      <p>${company.summary}</p>
-      <p><strong>${lang === "he" ? "תחום" : "Field"}:</strong> ${company.field}</p>
-    `;
-    if (logo) card.prepend(logo);
-    grid.appendChild(card);
-  });
-
-  grid.dataset.extraCompaniesAdded = "true";
-}
-
 function updateGlobalCompaniesPage() {
   const grid = document.querySelector("#globalCompaniesGrid");
   if (!grid) return;
   enhanceExistingCompanyCards();
-  addExtraGlobalCompanies();
 }
 
 function watchGlobalCompaniesGrid() {
@@ -109,8 +49,7 @@ function watchGlobalCompaniesGrid() {
   if (!grid) return;
 
   const observer = new MutationObserver(() => {
-    grid.dataset.extraCompaniesAdded = "false";
-    updateGlobalCompaniesPage();
+    enhanceExistingCompanyCards();
   });
   observer.observe(grid, { childList: true });
   updateGlobalCompaniesPage();
