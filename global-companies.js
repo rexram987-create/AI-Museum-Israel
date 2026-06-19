@@ -64,11 +64,16 @@ function createCompanyLogo(name) {
 
 function enhanceExistingCompanyCards() {
   document.querySelectorAll("#globalCompaniesGrid .card").forEach((card) => {
-    if (card.dataset.logoEnhanced === "true") return;
     const title = card.querySelector("h3")?.textContent?.trim();
+    card.classList.add("company-card");
+
+    if (card.querySelector(".company-logo-wrap")) {
+      card.dataset.logoEnhanced = "true";
+      return;
+    }
+
     const logo = createCompanyLogo(title);
     if (logo) card.prepend(logo);
-    card.classList.add("company-card");
     card.dataset.logoEnhanced = "true";
   });
 }
@@ -87,6 +92,7 @@ function addFallbackCompaniesIfMissing() {
 
     const card = document.createElement("article");
     card.className = "card company-card";
+    card.dataset.logoEnhanced = "true";
     card.innerHTML = `
       <span class="badge">${company.badge}</span>
       <h3>${company.name}</h3>
