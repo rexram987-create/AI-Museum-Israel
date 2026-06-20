@@ -110,6 +110,85 @@ All images must be credited according to their license terms.
 
 ---
 
+## People Portraits
+
+> Important: the portrait entries below reserve the credit locations for the people images already uploaded or planned for upload.  
+> Before publishing widely, fill in the exact original filename, author, license, and source page from Wikimedia Commons or the original source page for each image.
+
+### Sam Altman
+
+**Site path:** `assets/images/people/sam-altman.jpg`  
+**Person represented:** Sam Altman  
+**Source:** To be completed from the image source page  
+**Author:** To be completed  
+**License:** To be completed  
+**Use note:** Use only if the image source license allows reuse on a public educational website.
+
+### Demis Hassabis
+
+**Site path:** `assets/images/people/demis-hassabis.jpg`  
+**Person represented:** Demis Hassabis  
+**Source:** To be completed from the image source page  
+**Author:** To be completed  
+**License:** To be completed  
+**Use note:** Use only if the image source license allows reuse on a public educational website.
+
+### Dario Amodei
+
+**Site path:** `assets/images/people/dario-amodei.jpg`  
+**Person represented:** Dario Amodei  
+**Source:** To be completed from the image source page  
+**Author:** To be completed  
+**License:** To be completed  
+**Use note:** Use only if the image source license allows reuse on a public educational website.
+
+### Jensen Huang
+
+**Site path:** `assets/images/people/jensen-huang.jpg`  
+**Person represented:** Jensen Huang  
+**Source:** To be completed from the image source page  
+**Author:** To be completed  
+**License:** To be completed  
+**Use note:** Use only if the image source license allows reuse on a public educational website.
+
+### Elon Musk
+
+**Site path:** `assets/images/people/elon-musk.jpg`  
+**Person represented:** Elon Musk  
+**Source:** To be completed from the image source page  
+**Author:** To be completed  
+**License:** To be completed  
+**Use note:** Use only if the image source license allows reuse on a public educational website.
+
+### Arthur Mensch
+
+**Site path:** `assets/images/people/arthur-mensch.jpg`  
+**Person represented:** Arthur Mensch  
+**Source:** To be completed from the image source page  
+**Author:** To be completed  
+**License:** To be completed  
+**Use note:** Use only if the image source license allows reuse on a public educational website.
+
+### Amnon Shashua
+
+**Site path:** `assets/images/people/amnon-shashua.jpg`  
+**Person represented:** Amnon Shashua  
+**Source:** To be completed from the image source page  
+**Author:** To be completed  
+**License:** To be completed  
+**Use note:** Use only if the image source license allows reuse on a public educational website.
+
+### Assaf Rappaport
+
+**Site path:** `assets/images/people/assaf-rappaport.jpg`  
+**Person represented:** Assaf Rappaport  
+**Source:** To be completed from the image source page  
+**Author:** To be completed  
+**License:** To be completed  
+**Use note:** Use only if the image source license allows reuse on a public educational website.
+
+---
+
 ## Trademark and Educational Use Notice
 
 All company names, product names, and logos are trademarks or registered trademarks of their respective owners.  
@@ -121,4 +200,5 @@ AI Museum Israel is an independent learning project and is not affiliated with, 
 - CC BY-SA licenses allow reuse and adaptation, including on a public website, as long as attribution is provided.
 - If a CC BY-SA image is modified, the modified version should be shared under the same or a compatible ShareAlike license.
 - Trademarked company logos should not be used as the branding of this website or in a way that implies endorsement.
+- People portraits should be used only when the license is clear and the source page is saved in this credits file.
 - Keep original author names, license names, and source references visible in this credits file.
