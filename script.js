@@ -3,6 +3,7 @@ const translations = {
     navHistory: "היסטוריה",
     navGlobalCompanies: "חברות עולמיות",
     navIsraeliCompanies: "חברות ישראליות",
+    navPeople: "דמויות מרכזיות",
     navTimeline: "ציר זמן",
     navGuide: "מדריך חכם",
     heroEyebrow: "מוזיאון דיגיטלי אינטראקטיבי",
@@ -47,6 +48,7 @@ const translations = {
     navHistory: "History",
     navGlobalCompanies: "Global Companies",
     navIsraeliCompanies: "Israeli Companies",
+    navPeople: "Key People",
     navTimeline: "Timeline",
     navGuide: "Smart Guide",
     heroEyebrow: "Interactive Digital Museum",
@@ -95,6 +97,20 @@ let knowledge = { history: [], companies: [], timeline: [] };
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
+function injectPeopleNavLink() {
+  const nav = document.querySelector(".nav-links");
+  if (!nav || nav.querySelector('[href="people.html"]')) return;
+
+  const timelineLink = nav.querySelector('[href="timeline.html"]');
+  const peopleLink = document.createElement("a");
+  peopleLink.href = "people.html";
+  peopleLink.dataset.i18n = "navPeople";
+  peopleLink.textContent = translations[currentLanguage].navPeople;
+
+  if (timelineLink) nav.insertBefore(peopleLink, timelineLink);
+  else nav.appendChild(peopleLink);
+}
+
 const historyImages = {
   "2012": {
     src: "assets/images/history/alexnet-diagram.svg",
@@ -109,6 +125,7 @@ const historyImages = {
 };
 
 async function loadKnowledge() {
+  injectPeopleNavLink();
   const response = await fetch("data/knowledge-base.json");
   knowledge = await response.json();
   renderAll();
@@ -118,185 +135,115 @@ function t(key) {
   return translations[currentLanguage][key] || key;
 }
 
-function applyLanguage() {
+function applyTranslations() {
   document.documentElement.lang = currentLanguage;
   document.documentElement.dir = currentLanguage === "he" ? "rtl" : "ltr";
-
-  const toggle = $("#languageToggle");
-  if (toggle) toggle.textContent = currentLanguage === "he" ? "English" : "עברית";
-
   $$('[data-i18n]').forEach((el) => {
     el.textContent = t(el.dataset.i18n);
   });
-
-  $$('[data-i18n-placeholder]').forEach((el) => {
-    el.placeholder = t(el.dataset.i18nPlaceholder);
-  });
-
-  renderAll();
-}
-
-function localized(item, field) {
-  return item[field]?.[currentLanguage] || item[field]?.he || item[field] || "";
-}
-
-function cardTemplate(item) {
-  const title = item.name || localized(item, "title");
-  const badge = localized(item, "period") || (item.region === "israel" ? t("filterIsrael") : t("filterGlobal"));
-  const field = localized(item, "field");
-  return `
-    <article class="card">
-      <span class="badge">${badge}</span>
-      <h3>${title}</h3>
-      <p>${localized(item, "summary")}</p>
-      ${field ? `<p><strong>${localized(item, "fieldLabel")}:</strong> ${field}</p>` : ""}
-    </article>
-  `;
-}
-
-function timelineTemplate(item) {
-  const highlightClass = item.highlight ? " timeline-item-highlight" : "";
-  const highlightBadge = item.highlight ? `<span class="highlight-badge">${t("goldenStation")}</span>` : "";
-  const image = historyImages[item.year];
-  const imageBlock = image ? `
-    <figure class="timeline-image">
-      <img src="${image.src}" alt="${image.alt}" onerror="this.closest('.timeline-image').style.display='none'" />
-      <figcaption>${image.credit} · <a href="docs/image-credits.md">Credits</a></figcaption>
-    </figure>
-  ` : "";
-
-  return `
-    <article class="timeline-item${highlightClass}">
-      <div class="timeline-year">${item.year}</div>
-      ${highlightBadge}
-      <h3>${localized(item, "title")}</h3>
-      <p>${localized(item, "summary")}</p>
-      ${imageBlock}
-    </article>
-  `;
-}
-
-function renderHome() {
-  const historyGrid = $("#historyGrid");
-  if (historyGrid) historyGrid.innerHTML = knowledge.history.slice(0, 3).map(cardTemplate).join("");
-
-  const companiesGrid = $("#companiesGrid");
-  if (companiesGrid) {
-    const activeFilter = document.querySelector(".filter-btn.active")?.dataset.filter || "all";
-    const filtered = activeFilter === "all" ? knowledge.companies : knowledge.companies.filter((company) => company.region === activeFilter);
-    companiesGrid.innerHTML = filtered.slice(0, 4).map(cardTemplate).join("");
-  }
-
-  const timelineList = $("#timelineList");
-  if (timelineList) timelineList.innerHTML = knowledge.timeline.slice(0, 3).map(timelineTemplate).join("");
-}
-
-function renderFullPages() {
-  const fullHistory = $("#fullHistoryGrid");
-  if (fullHistory) fullHistory.innerHTML = knowledge.history.map(cardTemplate).join("");
-
-  const globalCompanies = $("#globalCompaniesGrid");
-  if (globalCompanies) globalCompanies.innerHTML = knowledge.companies.filter((company) => company.region === "global").map(cardTemplate).join("");
-
-  const israeliCompanies = $("#israeliCompaniesGrid");
-  if (israeliCompanies) israeliCompanies.innerHTML = knowledge.companies.filter((company) => company.region === "israel").map(cardTemplate).join("");
-
-  const fullTimeline = $("#fullTimelineList");
-  if (fullTimeline) fullTimeline.innerHTML = knowledge.timeline.map(timelineTemplate).join("");
+  const input = $('#questionInput');
+  if (input) input.placeholder = t('questionPlaceholder');
+  const toggle = $('#languageToggle');
+  if (toggle) toggle.textContent = currentLanguage === "he" ? "English" : "עברית";
 }
 
 function renderAll() {
-  renderHome();
-  renderFullPages();
+  injectPeopleNavLink();
+  applyTranslations();
+  if ($('#historyGrid')) renderHistoryPreview();
+  if ($('#companiesGrid')) renderCompaniesPreview();
+  if ($('#timelineList')) renderTimelinePreview();
+  if ($('#fullTimelineList')) renderFullTimeline();
+  if ($('#globalCompaniesGrid')) renderCompanyPage('global');
+  if ($('#israeliCompaniesGrid')) renderCompanyPage('israel');
 }
 
-function normalizeText(text) {
-  return text.toLowerCase().replace(/[.,:;!?()\-]/g, " ").replace(/\s+/g, " ").trim();
+function renderHistoryPreview() {
+  const grid = $('#historyGrid');
+  grid.innerHTML = knowledge.history.slice(0, 6).map(item => `<article class="card"><span class="badge">${item.year}</span><h3>${item.title[currentLanguage]}</h3><p>${item.summary[currentLanguage]}</p></article>`).join('');
 }
 
-function searchKnowledge(query) {
-  const q = normalizeText(query);
-  if (!q) return null;
+function renderCompaniesPreview() {
+  const grid = $('#companiesGrid');
+  const cards = knowledge.companies.map(company => `<article class="card" data-region="${company.region}"><span class="badge">${company.region === 'israel' ? 'Israel' : 'Global'}</span><h3>${company.name}</h3><p>${company.summary[currentLanguage]}</p></article>`).join('');
+  grid.innerHTML = cards;
+  $$('.filter-btn').forEach(btn => btn.addEventListener('click', () => filterCompanies(btn.dataset.filter)));
+}
 
-  const entries = [
-    ...knowledge.history.map((item) => ({ type: "history", item })),
-    ...knowledge.companies.map((item) => ({ type: "company", item })),
-    ...knowledge.timeline.map((item) => ({ type: "timeline", item }))
-  ];
-
-  let best = null;
-  let bestScore = 0;
-
-  entries.forEach((entry) => {
-    const item = entry.item;
-    const text = normalizeText([
-      item.name,
-      localized(item, "title"),
-      localized(item, "summary"),
-      localized(item, "field"),
-      item.keywords?.join(" ")
-    ].join(" "));
-
-    const score = q.split(" ").filter((word) => word.length > 1 && text.includes(word)).length;
-    if (score > bestScore) {
-      bestScore = score;
-      best = entry;
-    }
+function filterCompanies(filter) {
+  $$('.filter-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.filter === filter));
+  $$('#companiesGrid .card').forEach(card => {
+    card.style.display = filter === 'all' || card.dataset.region === filter ? 'block' : 'none';
   });
-
-  return bestScore > 0 ? best : null;
 }
 
-function answerQuestion() {
-  const input = $("#questionInput");
-  const answerBox = $("#answerBox");
-  if (!input || !answerBox) return;
-
-  const result = searchKnowledge(input.value);
-  if (!result) {
-    answerBox.textContent = t("noAnswer");
-    return;
-  }
-
-  const item = result.item;
-  const title = item.name || localized(item, "title");
-  const summary = localized(item, "summary");
-  const field = localized(item, "field");
-
-  answerBox.innerHTML = `
-    <strong>${t("resultPrefix")}</strong><br />
-    <h3>${title}</h3>
-    <p>${summary}</p>
-    ${field ? `<p><strong>${localized(item, "fieldLabel")}:</strong> ${field}</p>` : ""}
-  `;
+function renderTimelinePreview() {
+  $('#timelineList').innerHTML = knowledge.timeline.slice(0, 5).map(item => timelineTemplate(item)).join('');
 }
 
-const languageToggle = $("#languageToggle");
-if (languageToggle) {
-  languageToggle.addEventListener("click", () => {
+function renderFullTimeline() {
+  $('#fullTimelineList').innerHTML = knowledge.timeline.map(item => timelineTemplate(item)).join('');
+}
+
+function timelineTemplate(item) {
+  const isGolden = item.year === "2022";
+  return `<article class="timeline-item ${isGolden ? 'timeline-item-highlight' : ''}"><div class="timeline-year">${item.year}</div>${isGolden ? `<span class="highlight-badge">${t('goldenStation')}</span>` : ''}<h3>${item.title[currentLanguage]}</h3><p>${item.summary[currentLanguage]}</p>${historyImages[item.year] ? imageTemplate(historyImages[item.year]) : ''}</article>`;
+}
+
+function imageTemplate(image) {
+  return `<figure class="timeline-image js-modal-image" data-full="${image.src}" data-caption="${image.credit}"><img src="${image.src}" alt="${image.alt}" onerror="this.closest('.timeline-image').style.display='none'" /><figcaption>${image.credit}</figcaption></figure>`;
+}
+
+function renderCompanyPage(region) {
+  const grid = region === 'global' ? $('#globalCompaniesGrid') : $('#israeliCompaniesGrid');
+  grid.innerHTML = knowledge.companies.filter(company => company.region === region).map(company => `<article class="card"><span class="badge">${region === 'global' ? 'Global' : 'Israel'}</span><h3>${company.name}</h3><p>${company.summary[currentLanguage]}</p><p><strong>${currentLanguage === 'he' ? 'תחום' : 'Field'}:</strong> ${company.field[currentLanguage]}</p></article>`).join('');
+}
+
+function setupGuide() {
+  const btn = $('#askButton');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const q = $('#questionInput').value.trim().toLowerCase();
+    const answerBox = $('#answerBox');
+    const allEntries = [...knowledge.history, ...knowledge.companies, ...knowledge.timeline];
+    const match = allEntries.find(item => JSON.stringify(item).toLowerCase().includes(q));
+    answerBox.innerHTML = match ? `<strong>${t('resultPrefix')}</strong><br>${match.title?.[currentLanguage] || match.name}<p>${match.summary?.[currentLanguage] || match.field?.[currentLanguage] || ''}</p>` : t('noAnswer');
+  });
+}
+
+function setupLanguageToggle() {
+  const toggle = $('#languageToggle');
+  if (!toggle) return;
+  toggle.addEventListener('click', () => {
     currentLanguage = currentLanguage === "he" ? "en" : "he";
     localStorage.setItem("aiMuseumLanguage", currentLanguage);
-    applyLanguage();
+    renderAll();
   });
 }
 
-$$('.filter-btn').forEach((button) => {
-  button.addEventListener("click", () => {
-    $$('.filter-btn').forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
-    renderHome();
+function setupImageModal() {
+  const modal = document.createElement('div');
+  modal.className = 'image-modal';
+  modal.innerHTML = '<button class="modal-close" aria-label="Close">×</button><img alt=""><p></p>';
+  document.body.appendChild(modal);
+  const img = modal.querySelector('img');
+  const caption = modal.querySelector('p');
+  document.body.addEventListener('click', (event) => {
+    const figure = event.target.closest('.js-modal-image');
+    if (!figure) return;
+    img.src = figure.dataset.full;
+    caption.textContent = figure.dataset.caption || '';
+    modal.classList.add('is-open');
   });
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal || event.target.classList.contains('modal-close')) modal.classList.remove('is-open');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  injectPeopleNavLink();
+  setupLanguageToggle();
+  setupGuide();
+  setupImageModal();
+  loadKnowledge();
 });
-
-const askButton = $("#askButton");
-if (askButton) askButton.addEventListener("click", answerQuestion);
-
-const questionInput = $("#questionInput");
-if (questionInput) {
-  questionInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") answerQuestion();
-  });
-}
-
-loadKnowledge();
-applyLanguage();
