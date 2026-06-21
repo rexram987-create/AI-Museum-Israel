@@ -1,0 +1,67 @@
+.person-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.person-link-row .secondary-btn {
+  flex: 1 1 140px;
+  min-width: 130px;
+  max-width: 190px;
+  min-height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  line-height: 1.25;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+.person-link-row .secondary-btn:nth-child(1) {
+  border-color: rgba(96, 165, 250, 0.95);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.28), rgba(15, 23, 42, 0.88));
+  color: #bfdbfe;
+}
+
+.person-link-row .secondary-btn:nth-child(2) {
+  border-color: rgba(74, 222, 128, 0.95);
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.28), rgba(15, 23, 42, 0.88));
+  color: #bbf7d0;
+}
+
+.person-link-row .secondary-btn:nth-child(3) {
+  border-color: rgba(168, 85, 247, 0.95);
+  background: linear-gradient(135deg, rgba(126, 34, 206, 0.30), rgba(15, 23, 42, 0.88));
+  color: #e9d5ff;
+}
+
+.person-link-row .secondary-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.12);
+}
+
+@media (max-width: 760px) {
+  .person-link-row {
+    gap: 12px;
+  }
+
+  .person-link-row .secondary-btn {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 128px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .person-link-row .secondary-btn {
+    flex-basis: 100%;
+    width: 100%;
+  }
+}
