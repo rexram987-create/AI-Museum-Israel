@@ -46,6 +46,13 @@
   color: #ffffff;
 }
 
+.person-profile-wide .person-link-row .secondary-btn:nth-child(5) {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.84), rgba(154, 52, 18, 0.96));
+  border-color: rgba(251, 146, 60, 0.95);
+  color: #ffffff;
+}
+
 .person-profile-wide .person-link-row .secondary-btn:hover {
   transform: translateY(-2px);
   filter: brightness(1.08);
