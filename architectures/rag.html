@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAG | AI Museum Israel</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../model-page-links.css">
+</head>
+<body>
+<header class="site-header">
+<nav class="navbar">
+<a href="../index.html" class="logo">AI Museum Israel</a>
+<div class="nav-links">
+<a href="../index.html">בית</a>
+<a href="../models.html">מודלים</a>
+<a href="../global-companies.html">חברות עולמיות</a>
+<a href="../israeli-companies.html">חברות ישראליות</a>
+<a href="../people.html">דמויות מרכזיות</a>
+<a href="../architectures.html">ארכיטקטורות AI</a>
+<a href="../timeline.html">ציר זמן</a>
+<a href="../guide.html">מדריך חכם</a>
+</div>
+</nav>
+</header>
+<main>
+<section class="page-hero section">
+<p class="eyebrow">AI Architecture</p>
+<h1>RAG</h1>
+<p>RAG הוא קיצור של Retrieval-Augmented Generation. בשפה פשוטה: זו שיטה שבה מודל AI לא מסתמך רק על הזיכרון שלו, אלא קודם מחפש מידע במקור חיצוני, ואז משתמש במידע שמצא כדי לענות.</p>
+<p>אפשר לחשוב על זה כמו תלמיד שלא עונה רק מהראש, אלא קודם פותח ספרייה, מוצא את החומר המתאים, ואז כותב תשובה.</p>
+</section>
+<section class="section person-profile-grid">
+<article class="card">
+<h2>הסבר פשוט מאוד</h2>
+<p>דמיין שאתה נשאל שאלה קשה בהיסטוריה.</p>
+<p>אם תענה רק מהזיכרון, ייתכן שתטעה או תשכח פרטים.</p>
+<p>אבל אם תוכל קודם לפתוח אנציקלופדיה, למצוא את הערך המתאים, ואז לענות — התשובה שלך תהיה כנראה מדויקת יותר.</p>
+<p>זה בדיוק הרעיון של RAG: מודל + חיפוש במאגר ידע.</p>
+</article>
+<article class="card">
+<h2>מה פירוש השם RAG?</h2>
+<p><strong>Retrieval</strong> פירושו שליפה או חיפוש מידע.</p>
+<p><strong>Augmented</strong> פירושו מחוזק או משופר.</p>
+<p><strong>Generation</strong> פירושו יצירת תשובה.</p>
+<p>כלומר: המודל יוצר תשובה, אבל קודם הוא מחזק אותה בעזרת מידע שהוא שלף ממקור חיצוני.</p>
+</article>
+<article class="card">
+<h2>תעודת זהות</h2>
+<p><strong>שם:</strong> Retrieval-Augmented Generation</p>
+<p><strong>קיצור:</strong> RAG</p>
+<p><strong>תפקיד:</strong> לחבר מודל AI למאגר ידע חיצוני</p>
+<p><strong>שימושים:</strong> חיפוש, מסמכים, שירות לקוחות, אתרי ידע, מערכות ארגוניות</p>
+<p><strong>רעיון מרכזי:</strong> קודם מחפשים מידע, אחר כך עונים</p>
+</article>
+<article class="card">
+<h2>למה צריך RAG?</h2>
+<p>מודל AI רגיל יודע לענות לפי מה שלמד בזמן האימון שלו. אבל יש בעיה: העולם משתנה כל הזמן.</p>
+<p>חוקים משתנים, מחירים משתנים, מוצרים מתעדכנים, מאמרים חדשים מתפרסמים ומסמכים פנימיים של ארגון לא תמיד היו בתוך האימון של המודל.</p>
+<p>RAG מאפשר למודל להשתמש במידע עדכני או פרטי שנמצא מחוץ אליו.</p>
+</article>
+<article class="card">
+<h2>איך זה עובד בפועל?</h2>
+<p>כאשר המשתמש שואל שאלה, המערכת עושה כמה צעדים:</p>
+<ul>
+<li>קודם היא מבינה מה המשתמש מחפש.</li>
+<li>אחר כך היא מחפשת קטעים מתאימים במאגר מידע.</li>
+<li>היא מביאה למודל את הקטעים הכי רלוונטיים.</li>
+<li>המודל משתמש בקטעים האלה כדי לנסח תשובה.</li>
+</ul>
+<p>המשתמש רואה רק את התשובה הסופית, אבל מאחורי הקלעים הייתה גם פעולת חיפוש.</p>
+</article>
+<article class="card">
+<h2>דוגמה יומיומית</h2>
+<p>נניח שיש חברה עם אלפי מסמכים פנימיים: נהלים, חוזים, הוראות תמיכה ומדריכים.</p>
+<p>עובד שואל: “מה הנוהל להחזרת מוצר פגום?”</p>
+<p>במקום שהמודל ינחש, מערכת RAG מחפשת במסמכי החברה את הנוהל המתאים, ואז המודל מסכם אותו בשפה פשוטה.</p>
+</article>
+<article class="card">
+<h2>RAG מול מודל רגיל</h2>
+<p><strong>מודל רגיל</strong> עונה בעיקר לפי מה שנמצא בזיכרון הפנימי שלו.</p>
+<p><strong>מודל עם RAG</strong> קודם מחפש מידע במאגר חיצוני, ואז עונה לפי מה שמצא.</p>
+<p>במילים פשוטות: מודל רגיל דומה לאדם שעונה מהראש. RAG דומה לאדם שקודם בודק בספרייה ואז עונה.</p>
+</article>
+<article class="card">
+<h2>איפה רואים RAG?</h2>
+<ul>
+<li>צ׳אטבוטים של שירות לקוחות.</li>
+<li>מערכות AI שמחוברות למסמכי חברה.</li>
+<li>עוזרים משפטיים שקוראים חוזים ומסמכים.</li>
+<li>מערכות חיפוש חכמות באתרי אינטרנט.</li>
+<li>כלים שמסכמים מאמרים, דוחות או קבצים שהמשתמש מעלה.</li>
+<li>עוזרי AI שמחוברים למאגרי ידע פנימיים.</li>
+</ul>
+</article>
+<article class="card">
+<h2>למה RAG עוזר נגד טעויות?</h2>
+<p>אחת הבעיות של מודלי AI היא שהם עלולים להמציא תשובה שנשמעת משכנעת.</p>
+<p>כאשר משתמשים ב-RAG, המודל מקבל מידע אמיתי ממקור חיצוני, ולכן יש לו בסיס טוב יותר לתשובה.</p>
+<p>זה לא מבטל טעויות לגמרי, אבל זה יכול להפחית אותן — במיוחד אם המאגר החיצוני איכותי ומעודכן.</p>
+</article>
+<article class="card">
+<h2>יתרונות</h2>
+<ul>
+<li>מאפשר להשתמש במידע עדכני יותר.</li>
+<li>מאפשר לחבר AI למסמכים פרטיים של ארגון.</li>
+<li>יכול להפחית המצאות וטעויות.</li>
+<li>מאפשר לציין מקורות או מסמכים שעליהם התשובה מבוססת.</li>
+<li>מתאים מאוד לשירות לקוחות, מחקר, משפטים וידע ארגוני.</li>
+</ul>
+</article>
+<article class="card">
+<h2>מגבלות</h2>
+<ul>
+<li>אם המאגר החיצוני לא טוב, גם התשובה לא תהיה טובה.</li>
+<li>אם החיפוש מוצא מסמך לא רלוונטי, המודל עלול לענות לפי מידע שגוי.</li>
+<li>RAG לא מבטיח דיוק מלא.</li>
+<li>צריך לבנות ולתחזק את מאגר הידע.</li>
+<li>במערכות ארגוניות יש חשיבות גדולה לפרטיות ואבטחת מידע.</li>
+</ul>
+</article>
+<article class="card">
+<h2>למה RAG חשוב במוזיאון AI?</h2>
+<p>RAG חשוב כי הוא מסביר איך AI יכול לעבוד עם מידע שלא בהכרח נמצא בתוך המודל עצמו.</p>
+<p>זהו אחד הרעיונות המרכזיים שהפכו מודלי AI לכלים שימושיים יותר בעולם האמיתי: לא רק עוזר שמדבר יפה, אלא מערכת שמסוגלת להיעזר במסמכים, מקורות ומאגרי ידע.</p>
+<p>במילים פשוטות: RAG הוא הגשר בין מודל השפה לבין הספרייה שמחוץ לו.</p>
+</article>
+<article class="card person-profile-wide">
+<h2>קישורים</h2>
+<div class="person-link-row">
+<a class="secondary-btn" href="../architectures.html">חזרה לאגף הארכיטקטורות</a>
+<a class="secondary-btn" href="transformer.html">Transformer</a>
+<a class="secondary-btn" href="attention.html">Attention</a>
+<a class="secondary-btn" href="mixture-of-experts.html">Mixture of Experts</a>
+<a class="secondary-btn" href="../models.html">אגף המודלים</a>
+<a class="secondary-btn" href="../timeline.html">ציר זמן</a>
+</div>
+</article>
+</section>
+</main>
+<footer class="footer"><p>AI Museum Israel — RAG.</p></footer>
+</body>
+</html>
