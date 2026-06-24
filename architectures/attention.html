@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attention | AI Museum Israel</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../model-page-links.css">
+</head>
+<body>
+<header class="site-header">
+<nav class="navbar">
+<a href="../index.html" class="logo">AI Museum Israel</a>
+<div class="nav-links">
+<a href="../architectures.html">ארכיטקטורות AI</a>
+<a href="../models.html">מודלים</a>
+<a href="../timeline.html">ציר זמן</a>
+<a href="../guide.html">מדריך חכם</a>
+</div>
+</nav>
+</header>
+<main>
+<section class="page-hero section">
+<p class="eyebrow">AI Architecture</p>
+<h1>Attention</h1>
+<p>Attention הוא אחד הרעיונות החשובים ביותר בבינה מלאכותית מודרנית. הוא מאפשר למודל “לשים לב” לחלקים החשובים בטקסט, בתמונה או במידע אחר, כדי להבין טוב יותר את המשמעות.</p>
+<p>בשפה פשוטה: Attention הוא כמו מרקר צהוב שעוזר למודל לסמן לעצמו מה חשוב בכל רגע.</p>
+</section>
+<section class="section person-profile-grid">
+<article class="card">
+<h2>הסבר פשוט מאוד</h2>
+<p>דמיין שאתה קורא משפט ארוך, ובאמצע מופיעה המילה “הוא”.</p>
+<p>כדי להבין למי הכוונה, אתה חוזר בראש למילים הקודמות במשפט ובודק מי הוזכר קודם.</p>
+<p>Attention עושה משהו דומה: הוא עוזר למודל לבדוק אילו מילים אחרות חשובות כדי להבין כל מילה.</p>
+</article>
+<article class="card">
+<h2>דוגמה יומיומית</h2>
+<p>קח את המשפט:</p>
+<p><strong>“דני נתן ליוסי את הכדור כי הוא רצה לשחק.”</strong></p>
+<p>המילה “הוא” מתייחסת למישהו. כדי להבין למי, צריך להסתכל על שאר המשפט.</p>
+<p>Attention עוזר למודל לשים לב למילים החשובות, כמו “דני”, “יוסי”, “כדור” ו“רצה לשחק”.</p>
+</article>
+<article class="card">
+<h2>תעודת זהות</h2>
+<p><strong>שם:</strong> Attention</p>
+<p><strong>תפקיד:</strong> לעזור למודל לדעת למה לשים לב</p>
+<p><strong>קשור ל:</strong> Transformer</p>
+<p><strong>חשיבות:</strong> הלב של רוב מודלי השפה המודרניים</p>
+<p><strong>שימושים:</strong> טקסט, תרגום, סיכום, תמונות, קוד ושיחה</p>
+</article>
+<article class="card">
+<h2>למה צריך Attention?</h2>
+<p>טקסט הוא לא רק רצף של מילים. המשמעות של כל מילה תלויה במילים אחרות.</p>
+<p>לדוגמה, המילה “בנק” יכולה להיות מקום לכסף, אבל גם גדת נהר בשפות מסוימות. כדי להבין למה הכוונה, צריך לבדוק את ההקשר.</p>
+<p>Attention עוזר למודל להבין אילו מילים יוצרות את ההקשר החשוב.</p>
+</article>
+<article class="card">
+<h2>איך זה עובד בשפה פשוטה?</h2>
+<p>כאשר המודל קורא משפט, הוא לא מתייחס לכל המילים באותה מידה.</p>
+<p>לחלק מהמילים הוא נותן חשיבות גבוהה יותר, ולחלק מהמילים חשיבות נמוכה יותר.</p>
+<p>זה דומה לאדם שקורא טקסט ומסמן לעצמו: “המילה הזאת חשובה, המילה הזאת פחות חשובה, ולמילה הזאת צריך לחזור אחר כך.”</p>
+</article>
+<article class="card">
+<h2>Attention בתוך Transformer</h2>
+<p>Transformer הוא הארכיטקטורה הגדולה, ו-Attention הוא אחד המנגנונים המרכזיים בתוכה.</p>
+<p>אפשר לחשוב על Transformer כמו על מנוע גדול, ועל Attention כמו על המערכת שעוזרת למנוע לדעת לאן להסתכל.</p>
+<p>לכן בדף Transformer אמרנו שהוא “שם לב למה שחשוב”. בדף הזה אנחנו מסבירים את אותו רעיון עצמו.</p>
+</article>
+<article class="card">
+<h2>Self-Attention</h2>
+<p>Self-Attention פירושו שהמודל מסתכל על מילים בתוך אותו טקסט ומשווה ביניהן.</p>
+<p>למשל, כאשר הוא קורא משפט, כל מילה “בודקת” אילו מילים אחרות במשפט חשובות לה.</p>
+<p>כך המודל יכול להבין קשרים כמו מי עשה פעולה, למי מתייחסת מילה מסוימת, ומה הנושא המרכזי של המשפט.</p>
+</article>
+<article class="card">
+<h2>דימוי פשוט</h2>
+<p>דמיין חדר מלא אנשים שמדברים על נושא מסוים.</p>
+<p>אתה לא מקשיב לכולם באותה רמה. אתה מקשיב יותר למי שאומר משהו חשוב לנושא שאתה מנסה להבין.</p>
+<p>Attention עושה דבר דומה בתוך המודל: הוא מחליט לאילו חלקים “להקשיב” יותר.</p>
+</article>
+<article class="card">
+<h2>איפה רואים את זה במודלים?</h2>
+<ul>
+<li>GPT משתמש ברעיונות Attention כדי להבין שיחה וליצור תשובות.</li>
+<li>Claude משתמש בו כדי לעקוב אחרי טקסטים ארוכים ושיחה ממושכת.</li>
+<li>Gemini משתמש בו גם בהקשרים רב־אופניים, כמו טקסט ותמונה.</li>
+<li>Mistral ו-Mixtral נשענים גם הם על רעיונות ממשפחת Transformer ו-Attention.</li>
+<li>Jamba משלב Transformer עם Mamba / SSM, ולכן גם בו יש קשר לרעיון Attention.</li>
+</ul>
+</article>
+<article class="card">
+<h2>יתרונות</h2>
+<ul>
+<li>עוזר להבין קשרים בין מילים רחוקות.</li>
+<li>משפר תרגום, סיכום וכתיבה.</li>
+<li>מאפשר למודל להתייחס להקשר רחב יותר.</li>
+<li>מתאים לטקסט, קוד, תמונות וסוגי מידע נוספים.</li>
+<li>הפך לבסיס חשוב במודלי AI מודרניים.</li>
+</ul>
+</article>
+<article class="card">
+<h2>מגבלות</h2>
+<ul>
+<li>Attention דורש הרבה חישוב כאשר הטקסט ארוך מאוד.</li>
+<li>המודל עדיין עלול לשים לב לדבר הלא נכון.</li>
+<li>הוא לא מבטיח הבנה אנושית אמיתית.</li>
+<li>גם עם Attention, מודלים יכולים לטעות או להמציא מידע.</li>
+<li>במסמכים ארוכים מאוד יש עדיין אתגרים של זיכרון והקשר.</li>
+</ul>
+</article>
+<article class="card">
+<h2>למה Attention חשוב במוזיאון AI?</h2>
+<p>Attention חשוב כי הוא מסביר איך מודלים מצליחים להבין הקשרים מורכבים בטקסט.</p>
+<p>בלי Attention, מודלי שפה מודרניים היו מתקשים הרבה יותר להבין למי מתייחסת מילה, מה חשוב במשפט, ואיך לבנות תשובה שמתאימה להקשר.</p>
+<p>במילים פשוטות: אם Transformer הוא המנוע, Attention הוא היכולת של המנוע לדעת על מה להסתכל.</p>
+</article>
+<article class="card person-profile-wide">
+<h2>קישורים</h2>
+<div class="person-link-row">
+<a class="secondary-btn" href="../architectures.html">חזרה לאגף הארכיטקטורות</a>
+<a class="secondary-btn" href="transformer.html">Transformer</a>
+<a class="secondary-btn" href="mixture-of-experts.html">Mixture of Experts</a>
+<a class="secondary-btn" href="../models.html">אגף המודלים</a>
+<a class="secondary-btn" href="../timeline.html">ציר זמן</a>
+</div>
+</article>
+</section>
+</main>
+<footer class="footer"><p>AI Museum Israel — Attention.</p></footer>
+</body>
+</html>
